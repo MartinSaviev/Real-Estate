@@ -1,0 +1,33 @@
+.navbar {
+    position: relative;
+    top: 5%;
+    left: 0%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    
+}
+
+.navbar-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.navbar-list a {
+    font-size: 2em;
+    text-decoration: none;
+    background-color: aliceblue;
+    border-radius: 1em;
+    padding: 0.2em;
+    opacity: 50%;
+}
+
+.navbar-list a:hover {
+    color: red;
+}
