@@ -20,6 +20,7 @@
 }
 
 .navbar-list a {
+    color:rgb(17, 0, 255);
     font-size: 2em;
     text-decoration: none;
     background-color: aliceblue;

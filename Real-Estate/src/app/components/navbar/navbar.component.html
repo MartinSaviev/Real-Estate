@@ -1,10 +1,13 @@
 <section class="navbar">
     <ul class="navbar-list">
-        <a href="http://">Галерия</a>
-        <a href="http://">Моите оферти</a>
-        <a href="http://">Всички оферти</a>
-        <a href="http://">Регистрация</a>
-        <a href="http://">Влез</a>
-        <a href="http://">Излез</a>
+        <a routerLink="">Начало</a>
+        <a routerLink="/add">Добави имот</a>
+        <a routerLink="/my">Моите имоти</a>
+        <a routerLink="/all">Всички имоти</a>
+        <a routerLink="/register">Регистрация</a>
+        <a routerLink="/login">Влез</a>
+        <a routerLink="/logout">Излез</a>
     </ul>
 </section>
+
+<router-outlet/>
