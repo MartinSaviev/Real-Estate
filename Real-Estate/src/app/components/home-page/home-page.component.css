@@ -11,3 +11,14 @@
   font-weight: bold;
   font-family: "Nunito", sans-serif;
 }
+
+.home-page {
+  background-image: url("https://img.indiafilings.com/learn/wp-content/uploads/2015/10/12011006/Real-Estate-Agent-Business-India.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 1800px;
+  height: 100vh;
+  margin: 0 auto;
+  border-radius: 2em;
+  
+}
