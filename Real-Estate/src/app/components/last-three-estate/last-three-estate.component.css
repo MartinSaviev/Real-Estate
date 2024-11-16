@@ -4,6 +4,8 @@
     justify-content: space-around;
     position: relative;
     top: 70%;
+    font-family: 'Arial', sans-serif;
+    color: #333;
   }
   
   .property-item {
@@ -12,6 +14,7 @@
       align-items: center;
       text-align: center;
       margin: 1em; 
+      font-size: 1.2em;
   }
   
   .img-style {
@@ -60,3 +63,9 @@
       background-color: #0062cc;
   }
   
+  .icon-bed {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+  }
