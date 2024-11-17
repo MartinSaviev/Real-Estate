@@ -1,16 +1,17 @@
-<section class="login-form">
+<section class="real-estate-form">
     <div class="container">
-        <input type="checkbox" id="check">
-        <div class="login form">
+        <div class="real-estate">
             <header>Add New Real Estate</header>
             <form>
                 <input type="text" placeholder="Image url" #imageUrl>
                 <input type="text" placeholder="Price" #price>
-                <input type="text" placeholder="Address" #address> 
+                <input type="text" placeholder="Address" #address>
                 <input type="text" placeholder="Furniture" #furniture>
                 <input type="text" placeholder="Bedrooms" #bedrooms>
-                <textarea class="description" name="description" id="" placeholder="Description" #description></textarea>
-                <button (click)="addNewRealEstate($event,imageUrl,price,address,furniture,bedrooms,description)"  class="button" value="Register">Register</button>
+                <textarea class="description" name="description" id="" placeholder="Description"
+                    #description></textarea>
+                <button (click)="addNewRealEstate($event,imageUrl,price,address,furniture,bedrooms,description)"
+                    class="button" value="Add Real Estate">Add</button>
             </form>
         </div>
     </div>

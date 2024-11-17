@@ -1,87 +1,91 @@
-
 /* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 * {
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -30%);
-  max-width: 430px;
+  max-width: 450px;
   width: 100%;
   background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-.container .registration {
-  display: none;
-}
-#check:checked ~ .registration {
-  display: block;
-}
-#check:checked ~ .login {
-  display: none;
-}
-#check {
-  display: none;
-}
-.container .form {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   padding: 2rem;
 }
-.form header {
-  font-size: 2rem;
-  font-weight: 500;
+
+.login {
+  text-align: center;
+}
+
+.login header {
+  font-size: 1.8rem;
+  font-weight: 600;
   text-align: center;
   margin-bottom: 1.5rem;
+  color: #002966;
 }
-.form input {
-  height: 60px;
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input,
+button {
   width: 100%;
-  padding: 0 15px;
+  padding: 0.75rem 1rem;
   font-size: 17px;
-  margin-bottom: 1.3rem;
   border: 1px solid #002966;
   border-radius: 6px;
   outline: none;
 }
-.form input:focus {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+
+input:focus {
+  box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
+  border-color: #0287f4;
 }
-.form a {
-  font-size: 16px;
-  color: #002966;
-  text-decoration: none;
-}
-.form a:hover {
-  text-decoration: underline;
-}
-.form input.button {
+
+button {
   color: #fff;
   background: #002966;
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 1px;
-  margin-top: 1.7rem;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.4s ease;
 }
-.form input.button:hover {
+
+button:hover {
   background: #0287f4;
 }
-.signup {
+
+button:focus {
+  box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
+}
+
+.signup-login {
   font-size: 17px;
   text-align: center;
+  margin-top: 2em;
+  
 }
-.signup label {
+.signup-login label {
   color: #002966;
   cursor: pointer;
 }
-.signup label:hover {
+.signup-login label:hover {
   text-decoration: underline;
 }
