@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AllEstateService } from './all-estate.service';
-import { House } from './typeHouse';
+import { House } from '../types/typeHouse';
 
 @Component({
   selector: 'app-all-estate',

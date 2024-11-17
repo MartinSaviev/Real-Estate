@@ -1,8 +1,9 @@
 export interface House {
-  imageHouse: string;
+  imageUrl: string;
   price: string;
   address: string;
-  _id: string;
   furniture: string;
-  bedrooms: string;
+  bedrooms: number;
+  description: string;
+  _id?: string;
 }

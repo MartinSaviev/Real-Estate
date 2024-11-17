@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LastThreeEstateService } from './last-three-estate.service';
-import { House } from './typeHouse';
+import { House } from '../types/typeHouse';
 
 
 @Component({

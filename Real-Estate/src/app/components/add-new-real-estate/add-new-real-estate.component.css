@@ -40,7 +40,7 @@
   text-align: center;
   margin-bottom: 1.5rem;
 }
-.form input {
+.form input,button {
   height: 60px;
   width: 100%;
   padding: 0 15px;
@@ -61,7 +61,7 @@
 .form a:hover {
   text-decoration: underline;
 }
-.form input.button {
+.button {
   color: #fff;
   background: #002966;
   font-size: 1.2rem;
@@ -71,9 +71,13 @@
   cursor: pointer;
   transition: 0.4s;
 }
-.form input.button:hover {
+.button:hover {
   background: #0287f4;
 }
+.form button:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
 
 .description {
   width: 100%;
