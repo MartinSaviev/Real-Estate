@@ -3,4 +3,6 @@ export interface House {
   price: string;
   address: string;
   _id: string;
+  furniture: string;
+  bedrooms: string;
 }
