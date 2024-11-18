@@ -40,7 +40,6 @@ export class AddNewRealEstateComponent {
     this.addNewRealEstateData.postRealEstate(this.newRealEstate).subscribe({
       next: (data) => {
         console.log('Successfully added new real estate:', data);
-        console.log(data);
         this.router.navigate(['/']);
       },
       error: (err) => {
