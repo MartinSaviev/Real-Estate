@@ -3,9 +3,9 @@
         <div class="login">
             <header>Login</header>
             <form>
-                <input type="text" placeholder="Enter your email">
-                <input type="password" placeholder="Enter your password">
-                <button type="button" class="button" value="Login">Login</button>
+                <input type="text" placeholder="Enter your email" #email>
+                <input type="password" placeholder="Enter your password" #password>
+                <button (click)="login($event,email,password)" class="button" value="Login">Login</button>
             </form>
             <div class="signup-login">
                 <span class="signup-login">Don't have an account?

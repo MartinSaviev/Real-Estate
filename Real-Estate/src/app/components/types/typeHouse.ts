@@ -7,3 +7,18 @@ export interface House {
   description: string;
   _id?: string;
 }
+
+export interface UserLogin {
+  email: string;
+  password: string;
+  accessToken?:string;
+  _id?: string;
+}
+
+export interface UserRegister {
+  email: string;
+  password: string;
+  rePassword: string;
+  accessToken?:string;
+  _id?: string;
+}

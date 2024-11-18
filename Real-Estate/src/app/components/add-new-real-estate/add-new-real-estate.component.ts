@@ -11,37 +11,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-new-real-estate.component.css'],
 })
 export class AddNewRealEstateComponent {
-  // Declare a property for storing the real estate data
   newRealEstate: House | undefined;
 
-  constructor(private addNewRealEstateData: AddNewRealEstateService,private router: Router) {}
+  constructor(
+    private addNewRealEstateData: AddNewRealEstateService,
+    private router: Router
+  ) {}
 
   addNewRealEstate(
-    event:Event,
+    event: Event,
     imageUrl: HTMLInputElement,
     price: HTMLInputElement,
     address: HTMLInputElement,
     furniture: HTMLInputElement,
     bedrooms: HTMLInputElement,
     description: HTMLTextAreaElement
-  ):void {
+  ): void {
     event.preventDefault();
-     this.newRealEstate = {
+    this.newRealEstate = {
       imageUrl: imageUrl.value,
       price: price.value,
       address: address.value,
       furniture: furniture.value,
       bedrooms: Number(bedrooms.value),
       description: description.value,
-      
     };
 
-    // Post the new real estate object using the service
     this.addNewRealEstateData.postRealEstate(this.newRealEstate).subscribe({
-      
       next: (data) => {
         console.log('Successfully added new real estate:', data);
-        this.router.navigate(['/'])
+        console.log(data);
+        this.router.navigate(['/']);
       },
       error: (err) => {
         console.error('Error adding real estate:', err);

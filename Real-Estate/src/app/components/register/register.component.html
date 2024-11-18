@@ -3,14 +3,15 @@
         <div class="register">
             <header>Register</header>
             <form>
-                <input type="text" placeholder="Enter your email">
-                <input type="password" placeholder="Create a password">
-                <input type="password" placeholder="Confirm your password">
-                <button type="button" class="button" value="Register">Register</button>
+                <input type="text" placeholder="Enter your email" #email>
+                <input type="password" placeholder="Create a password" #password>
+                <input type="password" placeholder="Confirm your password" #rePassword>
+                <button (click)="register($event,email,password,rePassword)" class="button"
+                    value="Register">Register</button>
             </form>
             <div class="signup-register">
                 <span class="signup-register">I have an account?
-                    <label >Login</label>
+                    <label>Login</label>
                 </span>
             </div>
         </div>

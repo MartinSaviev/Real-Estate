@@ -1,7 +1,6 @@
 <div class="home-page-houses-style">
     @for (house of houses; track $index) {
 
-
     <div class="property-item">
 
         <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
@@ -14,12 +13,12 @@
             </div>
 
             <div class="specs">
-                <span class="specs-bed">
+                <p class="specs-bed">
                     <span class="caption"> <b>Обзавеждане</b> {{house.furniture}}</span>
-                </span>
-                <span class="specs-bath">
+                </p>
+                <p class="specs-bath">
                     <span class="caption"><b>Спални</b> {{house.bedrooms}}</span>
-                </span>
+                </p>
             </div>
 
             <!-- <a href="property-single.html" class="btn details">See details</a> -->
