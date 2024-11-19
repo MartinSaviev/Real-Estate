@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RegisterService } from './register.service';
 import { UserRegister } from '../types/typeHouse';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })

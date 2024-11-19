@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { LoginService } from './login.service';
 import { UserLogin } from '../types/typeHouse';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -15,6 +15,10 @@ export class LoginComponent {
   loginUser: UserLogin | undefined;
 
   constructor(private LoginService: LoginService, private router: Router) {}
+
+  // get isLoggedIn(): boolean {
+  //   return this.LoginService.isLoggedIn;
+  // }
 
   login(ev: Event, email: HTMLInputElement, password: HTMLInputElement): void {
     ev.preventDefault();
