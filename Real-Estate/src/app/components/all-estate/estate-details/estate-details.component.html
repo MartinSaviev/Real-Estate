@@ -1,9 +1,13 @@
 <div class="home-page-houses-style">
-    @for (house of houses; track $index) {
+    <div class="image-and-buttons">
+        <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
+        <div class="buttons">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+        </div>
+    </div>
 
     <div class="property-item">
-
-        <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
 
         <div class="house-item">
             <div class="price"><span>&#8364; {{house.price}}</span></div>
@@ -20,11 +24,16 @@
                     <p class="caption"><b>Спални</b> {{house.bedrooms}}</p>
                 </span>
             </div>
+            <div class="description">
+                <span><b>Описание</b></span>
+                <p>{{house.description}}</p>
+            </div>
 
-            <a [routerLink]="[house._id]" class="btn details">See details</a>
+
+            <!-- <a href="property-single.html" class="btn details">See details</a> -->
 
         </div>
     </div>
-    
-    }
+
+
 </div>

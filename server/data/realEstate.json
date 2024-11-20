@@ -1,38 +1,38 @@
 {
     "2d5ae478-87c7-45fa-acf9-f04aa4724421": {
         "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/misc//5d2d7c3bb3087613463d86554131c023.jpg",
-        "price": "1,291,000",
-		"address":"гр. Слънчев бряг",
-		"furniture":"Лукс",
-		"bedrooms":"4",
-		"description":"",
+        "price": "880 000",
+        "address": "гр. Слънчев бряг",
+        "furniture": "Лукс",
+        "bedrooms": "4",
+        "description": "БГ ПРОПЪРТИ ИНВЕСТ представя на Вашето внимание уникални вили в луксозния комплекс Идън Парк, разположен на 2 км от прекрасните плажове на курорта Слънчев бряг.",
         "_id": "2d5ae478-87c7-45fa-acf9-f04aa4724421"
     },
     "6012c542-38e1-4660-ba40-1b109c40cb2f": {
         "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/R/2446/6c340e53869f95b4c95458e8fbe463e6.jpg",
-        "price": "1,151,000",
-		"address":"гр. Черноморец",
-		"furniture":"Лукс",
-		"bedrooms":"5",
-		"description":"",
+        "price": "790 000",
+        "address": "гр. Черноморец",
+        "furniture": "Лукс",
+        "bedrooms": "5",
+        "description": "Имаме удоволствието да Ви представим комплекс Antea Beach Resort - първокласен озеленен комплекс от затворен тип, ситуиран в град Черноморец в местността Аклади, простиращ се на първа линия на прочутия Царски плаж, в непосредствена близост до къмпинг Градина и до приказния град Созопол.",
         "_id": "6012c542-38e1-4660-ba40-1b109c40cb2f"
     },
     "d749a819-1e41-4c65-9ce2-7b429c4ebd0d": {
         "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/misc//b894a928b030f51ad4808f08bad92d74.jpg",
-        "price": "1,033,000",
-		"address":"гр. Несебър",
-		"furniture":"Лукс",
-		"bedrooms":"3",
-		"description":"",
+        "price": "750 000",
+        "address": "гр. Несебър",
+        "furniture": "Лукс",
+        "bedrooms": "3",
+        "description": "Представяме на Вашето внимание страхотна къща с прекрасна панорама към целия залив на Слънчев бряг и Стария град на Несебър.",
         "_id": "d749a819-1e41-4c65-9ce2-7b429c4ebd0d"
     },
-	"a528a729-2a41-3c65-5ce2-8b439c4ejd0k": {
+    "a528a729-2a41-3c65-5ce2-8b439c4ejd0k": {
         "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/misc//6995d93ae227697a63ca489482b842f0.jpg",
         "price": "1,533,000",
-		"address":"гр. Варна",
-		"furniture":"Лукс",
-		"bedrooms":"2",
-		"description":"",
+        "address": "гр. Варна",
+        "furniture": "Лукс",
+        "bedrooms": "2",
+        "description": "",
         "_id": "a528a729-2a41-3c65-5ce2-8b439c4ejd0k"
     }
 }
