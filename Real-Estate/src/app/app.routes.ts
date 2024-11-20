@@ -16,7 +16,7 @@ export const routes: Routes = [
     path: 'all-estate',
     children: [
       { path: '', component: AllEstateComponent },
-      { path: ':estateId',component: EstateDetailsComponent },
+      { path: ':estateId', component: EstateDetailsComponent },
     ],
   },
   { path: '**', component: Error404Component, pathMatch: 'full' },
