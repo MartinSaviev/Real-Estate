@@ -1,7 +1,7 @@
 {
     "2d5ae478-87c7-45fa-acf9-f04aa4724421": {
         "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/misc//5d2d7c3bb3087613463d86554131c023.jpg",
-        "price": "880 000",
+        "price": "640 000",
         "address": "гр. Слънчев бряг",
         "furniture": "Лукс",
         "bedrooms": "4",
@@ -27,12 +27,12 @@
         "_id": "d749a819-1e41-4c65-9ce2-7b429c4ebd0d"
     },
     "a528a729-2a41-3c65-5ce2-8b439c4ejd0k": {
-        "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/misc//6995d93ae227697a63ca489482b842f0.jpg",
-        "price": "1,533,000",
-        "address": "гр. Варна",
+        "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/misc//8a9f2ce375aa1930edcb9a30af3afa2e.jpg",
+        "price": "880 000",
+        "address": "гр. Слънчев бряг",
         "furniture": "Лукс",
-        "bedrooms": "2",
-        "description": "",
+        "bedrooms": "4",
+        "description": "БГ ПРОПЪРТИ ИНВЕСТ представя на Вашето внимание уникални вили в луксозния комплекс Идън Парк, разположен на 2 км от прекрасните плажове на курорта Слънчев бряг.",
         "_id": "a528a729-2a41-3c65-5ce2-8b439c4ejd0k"
     }
 }

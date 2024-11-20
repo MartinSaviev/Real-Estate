@@ -27,7 +27,7 @@ export class EstateDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['all-estateId'];
+    const id = this.route.snapshot.params['estateId'];
     this.EstateDetailsService.getEstateDetails(id).subscribe((data) => {
       
       this.house = data as House;
