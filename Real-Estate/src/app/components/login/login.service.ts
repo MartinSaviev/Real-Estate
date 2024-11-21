@@ -10,10 +10,6 @@ export class LoginService {
   apiLogin = environment.apiLogin;
   constructor(private http: HttpClient) {}
 
-  // get isLoggedIn(): boolean {
-  //   return!!localStorage.getItem('accessToken');
-  // }
-
   login(user: UserLogin) {
     return this.http.post<UserLogin>(this.apiLogin, user);
   }

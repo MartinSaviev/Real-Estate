@@ -43,10 +43,9 @@ export class LoginComponent {
       },
       error: (error: HttpErrorResponse) => {
         console.error('Error:', error);
-        // Show error message to the user
       },
       complete: () => {
-        // Reset form inputs
+     
         email.value = '';
         password.value = '';
       },

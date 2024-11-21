@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { LogoutService } from '../logout/logout.service';
+import { AuthenticationService } from './authentication.service';
 
 
 @Component({
@@ -12,9 +13,13 @@ import { LogoutService } from '../logout/logout.service';
 })
 export class NavbarComponent {
 
-  constructor(private LogoutService:LogoutService){}
+  constructor(private LogoutService:LogoutService,private AuthenticationService:AuthenticationService){}
  
   logout() {
     this.LogoutService.logoutService();
+  }
+
+  get isLoggedIn() {
+    return this.AuthenticationService.isAuthenticated;
   }
 }
