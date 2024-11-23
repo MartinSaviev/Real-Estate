@@ -1,3 +1,8 @@
+
+export type Email ={
+  email:string;
+}
+
 export interface House {
   imageUrl: string;
   price: string;
@@ -6,6 +11,7 @@ export interface House {
   bedrooms: number;
   description: string;
   _id?: string;
+  owner?: Email;
 }
 
 export interface UserLogin {

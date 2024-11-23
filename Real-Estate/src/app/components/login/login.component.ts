@@ -16,10 +16,6 @@ export class LoginComponent {
 
   constructor(private LoginService: LoginService, private router: Router) {}
 
-  // get isLoggedIn(): boolean {
-  //   return this.LoginService.isLoggedIn;
-  // }
-
   login(ev: Event, email: HTMLInputElement, password: HTMLInputElement): void {
     ev.preventDefault();
 
@@ -45,7 +41,6 @@ export class LoginComponent {
         console.error('Error:', error);
       },
       complete: () => {
-     
         email.value = '';
         password.value = '';
       },

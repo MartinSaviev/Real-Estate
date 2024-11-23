@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AddNewRealEstateService } from './add-new-real-estate.service';
-import { House } from '../types/typeHouse';
+import { Email, House } from '../types/typeHouse';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +12,15 @@ import { Router } from '@angular/router';
 })
 export class AddNewRealEstateComponent {
   newRealEstate: House | undefined;
+  email: Email | undefined = undefined;
 
   constructor(
     private addNewRealEstateData: AddNewRealEstateService,
     private router: Router
-  ) {}
+  ) {
+    const sessionEmail = localStorage.getItem('email');
+    this.email = sessionEmail ? { email: sessionEmail } : undefined;
+  }
 
   addNewRealEstate(
     event: Event,
@@ -35,11 +39,12 @@ export class AddNewRealEstateComponent {
       furniture: furniture.value,
       bedrooms: Number(bedrooms.value),
       description: description.value,
+      owner: this.email,
     };
 
     this.addNewRealEstateData.postRealEstate(this.newRealEstate).subscribe({
-      next: (data) => {
-        console.log('Successfully added new real estate:', data);
+      next: (house) => {
+        console.log('Successfully added new real estate:', house);
         this.router.navigate(['/']);
       },
       error: (err) => {
