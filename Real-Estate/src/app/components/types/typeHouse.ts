@@ -1,5 +1,6 @@
 export type Email ={
   email:string;
+  _id?: string; 
 }
 
 export interface House {

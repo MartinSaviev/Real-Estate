@@ -1,0 +1,30 @@
+<div class="home-page-houses-style">
+    @for (house of houses; track $index) {
+
+    <div class="property-item">
+
+        <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
+
+        <div class="house-item">
+            <div class="price"><span>&#8364; {{house.price}}</span></div>
+
+            <div class="address-and-city">
+                <p class="city">{{house.address}}</p>
+            </div>
+
+            <div class="specs">
+                <span class="specs-bed">
+                    <p class="caption"><b>Обзавеждане</b> {{house.furniture}}</p>
+                </span>
+                <span class="specs-bath">
+                    <p class="caption"><b>Спални</b> {{house.bedrooms}}</p>
+                </span>
+            </div>
+
+            <a [routerLink]="[house._id]" class="btn details">See details</a>
+
+        </div>
+    </div>
+    
+    }
+</div>

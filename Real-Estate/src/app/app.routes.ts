@@ -6,6 +6,7 @@ import { AddNewRealEstateComponent } from './components/add-new-real-estate/add-
 import { AllEstateComponent } from './components/all-estate/all-estate.component';
 import { Error404Component } from './components/error404/error404.component';
 import { EstateDetailsComponent } from './components/all-estate/estate-details/estate-details.component';
+import { MyEstateComponent } from './components/my-estate/my-estate.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -19,5 +20,13 @@ export const routes: Routes = [
       { path: ':estateId', component: EstateDetailsComponent },
     ],
   },
+  { 
+    path: 'my-estate',
+    children: [
+      { path: '', component: MyEstateComponent },
+      { path: ':estateId', component: EstateDetailsComponent },
+    ],
+  },
   { path: '**', component: Error404Component, pathMatch: 'full' },
+  
 ];

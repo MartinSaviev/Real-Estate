@@ -1,0 +1,67 @@
+.home-page-houses-style {
+    font-family: "Arial", sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .property-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1em;
+    font-size: 1.2em;
+  }
+  
+  .img-style {
+      border-radius: 1em;
+      width: 500px;
+      height: 400px;
+  }
+  
+  .house-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .price {
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 0.1em;
+  }
+  
+  .address {
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-style: italic;
+    text-decoration: none;
+    color: #6c757d;
+  }
+  .specs {
+    margin-bottom: 1em;
+  }
+  
+  .btn.details {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn.details:hover {
+    background-color: #0062cc;
+  }
+  
+  .icon-bed {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+  }
+  
