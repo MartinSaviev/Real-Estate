@@ -27,7 +27,5 @@ export class MyEstateComponent implements OnInit {
         this.houses = result;
       }
     });
- 
   }
-
 }

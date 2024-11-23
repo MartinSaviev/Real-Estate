@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { LogoutService } from '../logout/logout.service';
-import { AuthenticationService } from './authentication.service';
+import { AuthenticationService } from '../auth/authentication.service';
 
 
 @Component({

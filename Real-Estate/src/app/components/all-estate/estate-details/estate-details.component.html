@@ -1,10 +1,13 @@
 <div class="home-page-houses-style">
     <div class="image-and-buttons">
         <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
-        <div class="buttons">
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-        </div>
+          @if(email == authEmail){
+              <div class="buttons">
+                  <button class="edit">Edit</button>
+                  <button class="delete">Delete</button>
+              </div>
+          }
+
     </div>
 
     <div class="property-item">
@@ -29,11 +32,6 @@
                 <p>{{house.description}}</p>
             </div>
 
-
-            <!-- <a href="property-single.html" class="btn details">See details</a> -->
-
         </div>
     </div>
-
-
 </div>

@@ -6,13 +6,14 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class LastThreeEstateService {
+  apiUrl = environment.apiUrl;
   
   
   constructor(private http: HttpClient) {}
   
   getHouses() {
-    const url = environment;
-    return this.http.get(url.apiUrl + '/realEstate');
+
+    return this.http.get(this.apiUrl + '/realEstate');
     
   }
 }

@@ -12,4 +12,8 @@ export class EstateDetailsService {
   getEstateDetails(id:string) {
     return this.http.get(`${this.apiUrl}/realEstate/${id}`);
   }
+
+  getOwner(id:string){
+    return this.http.get(`${this.apiUrl}/realEstate/${id}/owner`);
+  }
 }
