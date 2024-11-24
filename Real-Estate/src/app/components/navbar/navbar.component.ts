@@ -21,6 +21,6 @@ export class NavbarComponent {
   }
 
    isLoggedIn() {
-    return this.AuthenticationService.isAuthenticated;
+    return this.AuthenticationService.isAuthenticated();
   }
 }

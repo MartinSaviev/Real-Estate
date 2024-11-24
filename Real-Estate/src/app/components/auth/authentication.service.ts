@@ -30,6 +30,5 @@ export class AuthenticationService implements OnInit {
       return email || ''
     }
     return '';
-   
   }
 }
