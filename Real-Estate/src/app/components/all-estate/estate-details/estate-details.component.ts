@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { EstateDetailsService } from './estate-details.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { House } from '../../types/typeHouse';
 import { DeleteService } from '../../delete/delete.service';
 import { AuthService } from '../../auth/auth.service';
 
+
 @Component({
   selector: 'app-estate-details',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   providers: [DeleteService, EstateDetailsService],
   templateUrl: './estate-details.component.html',
   styleUrl: './estate-details.component.css',
@@ -33,7 +34,8 @@ export class EstateDetailsComponent implements OnInit {
     private EstateDetailsService: EstateDetailsService,
     private AuthService: AuthService,
     private DeleteService: DeleteService,
-    private navigation: Router
+    private navigation: Router,
+    
   ) {}
 
   ngOnInit() {
@@ -62,5 +64,10 @@ export class EstateDetailsComponent implements OnInit {
     this.DeleteService.deleteEstate(id).subscribe(() => {
       this.navigation.navigate(['/my-estate']);
     });
+  }
+
+  onEdit() {
+
+    this.navigation.navigate(['/edit']);
   }
 }

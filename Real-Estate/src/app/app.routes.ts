@@ -7,6 +7,7 @@ import { AllEstateComponent } from './components/all-estate/all-estate.component
 import { Error404Component } from './components/error404/error404.component';
 import { EstateDetailsComponent } from './components/all-estate/estate-details/estate-details.component';
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
+import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -27,6 +28,7 @@ export const routes: Routes = [
       { path: ':estateId', component: EstateDetailsComponent },
     ],
   },
+  {path: 'edit' , component: EditComponent},
   { path: '**', component: Error404Component, pathMatch: 'full' },
   
 ];
