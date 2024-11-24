@@ -3,19 +3,24 @@ import { RegisterService } from './register.service';
 import { UserRegister } from '../types/typeHouse';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [RouterLink],
-  providers:[RegisterService],
+  providers: [RegisterService],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
   registerUser: UserRegister | undefined;
 
-  constructor(private RegisterService: RegisterService,private router:Router ) {}
+  constructor(
+    private RegisterService: RegisterService,
+    private router: Router,
+    private AuthService: AuthService
+  ) {}
 
   register(
     event: Event,
@@ -41,12 +46,15 @@ export class RegisterComponent {
     this.RegisterService.registerUser(this.registerUser).subscribe({
       next: (response: any) => {
         console.log('Login Successful');
+
         const accessToken = response.accessToken;
-         this.router.navigate(['/']);
+        const email = response.email;
+
+        this.router.navigate(['/']);
 
         if (accessToken) {
-          localStorage.setItem('accessToken', accessToken);
-          localStorage.setItem('email', response.email);
+          this.AuthService.accessToken = accessToken;
+          this.AuthService.email = email;
         } else {
           console.error('Access Token is missing from the server response');
         }

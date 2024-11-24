@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { EstateDetailsService } from './estate-details.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { House } from '../../types/typeHouse';
-import { AuthenticationService } from '../../auth/authentication.service';
 import { DeleteService } from '../../delete/delete.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-estate-details',
   standalone: true,
   imports: [],
-  providers:[DeleteService,EstateDetailsService,AuthenticationService],
+  providers: [DeleteService, EstateDetailsService],
   templateUrl: './estate-details.component.html',
   styleUrl: './estate-details.component.css',
 })
@@ -31,7 +31,7 @@ export class EstateDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private EstateDetailsService: EstateDetailsService,
-    private AuthenticationService: AuthenticationService,
+    private AuthService: AuthService,
     private DeleteService: DeleteService,
     private navigation: Router
   ) {}
@@ -45,7 +45,7 @@ export class EstateDetailsComponent implements OnInit {
       this.EstateDetailsService.getEstateDetails(id).subscribe((data) => {
         this.house = data as House;
         this.email = this.house.owner?.email || '';
-        this.authEmail = this.AuthenticationService.isAuthEmail();
+        this.authEmail = this.AuthService.email || '';
       });
     });
   }
@@ -58,7 +58,6 @@ export class EstateDetailsComponent implements OnInit {
   }
 
   onDelete() {
-    console.log('deleteEstate');
     const id = this.route.snapshot.params['estateId'];
     this.DeleteService.deleteEstate(id).subscribe(() => {
       this.navigation.navigate(['/my-estate']);

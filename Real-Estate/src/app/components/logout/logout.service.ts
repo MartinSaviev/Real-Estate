@@ -2,15 +2,15 @@ import { HttpClient, HttpHeaders, HttpStatusCode } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class LogoutService {
   apiLogout = environment.apiLogout;
-  constructor(private http:HttpClient,private route:Router) { }
+  constructor(private http:HttpClient,private route:Router,private AuthService:AuthService) { }
 
   logoutFromServer() {
-    const accessToken = localStorage.getItem('accessToken') || '';
-    console.log(accessToken);
+    const accessToken = this.AuthService.accessToken || '';
     const headers = new HttpHeaders({ 'X-Authorization': accessToken });
     return this.http.get<any>(this.apiLogout, { headers });
   }
@@ -19,8 +19,7 @@ export class LogoutService {
     this.logoutFromServer().subscribe({
       next: () => {
         if (HttpStatusCode.NoContent) {
-          localStorage.removeItem('accessToken');
-          localStorage.removeItem('email');
+          this.AuthService.clearData();
           this.route.navigate(['/']);
           console.log('Logged out successfully');
         } else {

@@ -3,19 +3,24 @@ import { LoginService } from './login.service';
 import { UserLogin } from '../types/typeHouse';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [RouterLink],
-  providers:[LoginService],
+  providers: [LoginService],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   loginUser: UserLogin | undefined;
 
-  constructor(private LoginService: LoginService, private router: Router) {}
+  constructor(
+    private LoginService: LoginService,
+    private AuthService: AuthService,
+    private router: Router,
+  ) {}
 
   login(ev: Event, email: HTMLInputElement, password: HTMLInputElement): void {
     ev.preventDefault();
@@ -29,11 +34,12 @@ export class LoginComponent {
       next: (response) => {
         console.log('Login Successful');
         const accessToken = response.accessToken;
-        this.router.navigate(['/']);
-
+        const email = response.email;
+       
         if (accessToken) {
-          localStorage.setItem('accessToken', accessToken);
-          localStorage.setItem('email', response.email);
+          this.AuthService.accessToken = accessToken;
+          this.AuthService.email = email;
+          this.router.navigate(['/']);
         } else {
           console.error('Access Token is missing from the server response');
         }

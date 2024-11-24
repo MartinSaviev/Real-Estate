@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Email, House } from '../types/typeHouse';
 import { RouterLink } from '@angular/router';
 import { MyEstateService } from './my-estate.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-my-estate',
@@ -15,12 +16,12 @@ export class MyEstateComponent implements OnInit {
   houses: House[] = [];
   email: Email | undefined = undefined;
 
-  constructor(private MyEstateService: MyEstateService) {}
+  constructor(private MyEstateService: MyEstateService, private AuthService:AuthService) {}
 
   ngOnInit(): void {
     this.MyEstateService.getMyEstate().subscribe((data) => {
       this.houses = Object.values(data);
-      const sessionEmail: string = localStorage.getItem('email') ?? '';
+      const sessionEmail = this.AuthService.email;
       if (sessionEmail) {
         const result = this.houses.filter(
           (house) => house.owner?.email === sessionEmail
