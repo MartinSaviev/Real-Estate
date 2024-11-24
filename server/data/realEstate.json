@@ -9,7 +9,19 @@
         "owner": {
             "email": "ivan@abv.bg"
         },
-        "_id": "2d5ae478-87c7-45fa-acf9-f04aa4724421"
+        "_id": "2d5ae478-87c7-45fa-acf9-f04aa4724421",
+        "comments": {
+            "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a": {
+                "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
+                "email": "anna@users.bg",
+                "comment": "Мястото има има страхотна гледка!"
+            },
+            "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be": {
+                "_id": "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be",
+                "email": "peter@users.bg",
+               "comment": "Заслужава си да се види!"
+            }
+        }
     },
     "6012c542-38e1-4660-ba40-1b109c40cb2f": {
         "imageUrl": "https://cdn.bgpropertyinvest.com/uploads/files/original/R/2446/6c340e53869f95b4c95458e8fbe463e6.jpg",
@@ -20,6 +32,18 @@
         "description": "Имаме удоволствието да Ви представим комплекс Antea Beach Resort - първокласен озеленен комплекс от затворен тип, ситуиран в град Черноморец в местността Аклади, простиращ се на първа линия на прочутия Царски плаж, в непосредствена близост до къмпинг Градина и до приказния град Созопол.",
         "owner": {
             "email": "peter@abv.bg"
+        },
+        "comments": {
+            "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a": {
+                "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
+                "email": "john@users.bg",
+                "comment": "Посетете и вижте този прекрасен дом!"
+            },
+            "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be": {
+                "_id": "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be",
+                "email": "ivan@abv.bg",
+               "comment": "Перфектен от всякъде!"
+            }
         },
         "_id": "6012c542-38e1-4660-ba40-1b109c40cb2f"
     },
@@ -33,6 +57,18 @@
         "owner": {
             "email": "asen@abv.bg"
         },
+        "comments": {
+            "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a": {
+                "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
+                "email": "aleks@users.bg",
+                "comment": "Наистина си заслужава!"
+            },
+            "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be": {
+                "_id": "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be",
+                "email": "ivan@abv.bg",
+               "comment": "Този лукс не е за изпускане!"
+            }
+        },
         "_id": "d749a819-1e41-4c65-9ce2-7b429c4ebd0d"
     },
     "a528a729-2a41-3c65-5ce2-8b439c4ejd0k": {
@@ -44,6 +80,18 @@
         "description": "БГ ПРОПЪРТИ ИНВЕСТ представя на Вашето внимание уникални вили в луксозния комплекс Идън Парк, разположен на 2 км от прекрасните плажове на курорта Слънчев бряг.",
         "owner": {
             "email": "peter@abv.bg"
+        },
+        "comments": {
+            "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a": {
+                "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
+                "email": "doe@users.bg",
+                "comment": "Много красиво място!"
+            },
+            "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be": {
+                "_id": "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be",
+                "email": "asen@abv.bg",
+               "comment": "Много силно препоръчвам да се посети!"
+            }
         },
         "_id": "a528a729-2a41-3c65-5ce2-8b439c4ejd0k"
     }
