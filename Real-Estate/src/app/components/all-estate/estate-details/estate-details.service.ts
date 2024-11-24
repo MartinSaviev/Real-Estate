@@ -9,11 +9,11 @@ export class EstateDetailsService {
   apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
-  getEstateDetails(id:string) {
+  getEstateDetails(id: string) {
     return this.http.get(`${this.apiUrl}/realEstate/${id}`);
   }
 
-  getOwner(id:string){
+  getOwner(id: string) {
     return this.http.get(`${this.apiUrl}/realEstate/${id}/owner`);
   }
 }

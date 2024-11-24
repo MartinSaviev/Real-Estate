@@ -1,13 +1,12 @@
 <div class="home-page-houses-style">
     <div class="image-and-buttons">
         <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
-          @if(email == authEmail){
-              <div class="buttons">
-                  <button class="edit">Edit</button>
-                  <button class="delete">Delete</button>
-              </div>
-          }
-
+        @if(owner()){
+        <div class="buttons">
+            <button class="edit">Edit</button>
+            <button (click)="onDelete()" class="delete">Delete</button>
+        </div>
+        }
     </div>
 
     <div class="property-item">

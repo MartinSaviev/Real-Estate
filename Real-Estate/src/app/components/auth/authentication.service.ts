@@ -14,7 +14,7 @@ export class AuthenticationService implements OnInit {
 
   ngOnInit(): void {}
 
-  get isAuthenticated(): boolean {
+   isAuthenticated(): boolean {
     if (isPlatformBrowser(this.platformId)) {
       const token = localStorage.getItem('accessToken');
       if (token) {
@@ -24,7 +24,7 @@ export class AuthenticationService implements OnInit {
     return false;
   }
 
-  get isAuthEmail(): string | null {
+   isAuthEmail(): string | null {
     if (isPlatformBrowser(this.platformId)) {
       const email = localStorage.getItem('email');
       return email || ''
