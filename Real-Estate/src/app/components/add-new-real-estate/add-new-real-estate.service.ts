@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { House } from '../types/typeHouse';
 import { environment } from '../../../environments/environment';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AddNewRealEstateService {
   apiUrl = environment.apiUrl;
 

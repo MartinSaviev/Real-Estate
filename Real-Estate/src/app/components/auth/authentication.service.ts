@@ -3,9 +3,8 @@ import { environment } from '../../../environments/environment.development';
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
+
 export class AuthenticationService implements OnInit {
   apiUrl = environment.apiUrl;
   constructor(

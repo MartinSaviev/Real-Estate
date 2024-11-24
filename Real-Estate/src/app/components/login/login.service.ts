@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { UserLogin } from '../types/typeHouse';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class LoginService {
   apiLogin = environment.apiLogin;
   constructor(private http: HttpClient) {}

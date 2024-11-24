@@ -9,6 +9,7 @@ import { DeleteService } from '../../delete/delete.service';
   selector: 'app-estate-details',
   standalone: true,
   imports: [],
+  providers:[DeleteService,EstateDetailsService,AuthenticationService],
   templateUrl: './estate-details.component.html',
   styleUrl: './estate-details.component.css',
 })

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-add-new-real-estate',
   standalone: true,
   imports: [],
+  providers:[AddNewRealEstateService],
   templateUrl: './add-new-real-estate.component.html',
   styleUrls: ['./add-new-real-estate.component.css'],
 })

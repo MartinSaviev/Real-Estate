@@ -7,6 +7,7 @@ import { House } from '../types/typeHouse';
   selector: 'app-last-three-estate',
   standalone: true,
   imports: [],
+  providers:[LastThreeEstateService],
   templateUrl: './last-three-estate.component.html',
   styleUrl: './last-three-estate.component.css'
  

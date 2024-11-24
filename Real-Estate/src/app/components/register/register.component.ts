@@ -8,6 +8,7 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-register',
   standalone: true,
   imports: [RouterLink],
+  providers:[RegisterService],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })

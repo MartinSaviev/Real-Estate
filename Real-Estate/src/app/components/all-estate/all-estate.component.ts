@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-all-estate',
   standalone: true,
   imports: [RouterLink],
+  providers:[AllEstateService],
   templateUrl: './all-estate.component.html',
   styleUrl: './all-estate.component.css',
 })

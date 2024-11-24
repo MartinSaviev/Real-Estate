@@ -3,9 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { UserRegister } from '../types/typeHouse';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class RegisterService {
   apiRegister = environment.apiRegister;
   constructor(private http: HttpClient) {}

@@ -7,6 +7,7 @@ import { MyEstateService } from './my-estate.service';
   selector: 'app-my-estate',
   standalone: true,
   imports: [RouterLink],
+  providers:[MyEstateService],
   templateUrl: './my-estate.component.html',
   styleUrl: './my-estate.component.css',
 })
