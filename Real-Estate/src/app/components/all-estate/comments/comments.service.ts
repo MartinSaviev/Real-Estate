@@ -10,4 +10,8 @@ export class CommentsService {
   getCommentsByPostId(postId: string) {
     return this.http.get(`${this.apiUrl}/realEstate/${postId}/comments`);
   }
+
+  getOwner(id: string) {
+    return this.http.get(`${this.apiUrl}/realEstate/${id}/owner`);
+  }
 }

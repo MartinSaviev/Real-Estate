@@ -1,5 +1,4 @@
 <section>
-
     @for (comment of comments; track $index) {
     <article class="real-estate-form">
         <div class="comment">
@@ -7,9 +6,11 @@
             <p>{{comment.comment}}</p>
         </div>
     </article>
-    }
-    <article class="real-estate-form">
 
+    }
+    @if(isLoggedIn()){
+    @if(isOwner()){
+    <article class="real-estate-form">
         <div class="container">
             <div class="real-estate">
                 <header>Comment</header>
@@ -20,4 +21,6 @@
             </div>
         </div>
     </article>
+    }
+    }
 </section>
