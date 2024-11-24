@@ -1,12 +1,13 @@
 <div class="home-page-houses-style">
     <div class="image-and-buttons">
         <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
-        @if(owner()){
         <div class="buttons">
+            <button routerLink="/comments/{{house._id}}" class="comments">Comments</button>
+            @if(owner()){
             <button routerLink="/edit" (click)="onEdit()" class="edit">Edit</button>
             <button (click)="onDelete()" class="delete">Delete</button>
+            }
         </div>
-        }
     </div>
 
     <div class="property-item">

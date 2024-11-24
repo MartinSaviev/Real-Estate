@@ -8,6 +8,7 @@ import { Error404Component } from './components/error404/error404.component';
 import { EstateDetailsComponent } from './components/all-estate/estate-details/estate-details.component';
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
 import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
+import { CommentsComponent } from './components/all-estate/comments/comments.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -29,6 +30,7 @@ export const routes: Routes = [
     ],
   },
   {path: 'edit' , component: EditComponent},
+  {path: 'comments/:estateId' , component: CommentsComponent},
   { path: '**', component: Error404Component, pathMatch: 'full' },
   
 ];

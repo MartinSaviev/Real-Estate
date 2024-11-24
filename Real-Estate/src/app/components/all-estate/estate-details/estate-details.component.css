@@ -86,12 +86,8 @@
   margin: 1em 0;
 }
 
-.edit {
+.edit,.delete,.comments {
   padding: 1rem;
   font-size: 2em;
 }
 
-.delete {
-  padding: 1rem;
-  font-size: 2em;
-}
