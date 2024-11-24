@@ -2,10 +2,9 @@
 
     @for (comment of comments; track $index) {
     <article class="real-estate-form">
-        <div class="container">
-            <h4>{{comment.email}}</h4>
+        <div class="comment">
+            <h4 class="center">{{comment.email}}</h4>
             <p>{{comment.comment}}</p>
-
         </div>
     </article>
     }

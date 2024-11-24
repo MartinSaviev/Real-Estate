@@ -16,7 +16,7 @@
   padding: 2rem 0;
 }
 
-.container , .comment{
+.container {
   max-width: 450px;
   width: 100%;
   background: #fff;
@@ -82,4 +82,29 @@ button:hover {
 
 button:focus {
   box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
+}
+
+.comment {
+  max-width: 650px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.center {
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  padding: 0.2rem;
+  border-radius: 2em;
+  align-self: center;
+  margin-bottom: 1em;
+}
+.comment p {
+  font-size: 1.2rem;
+  
 }

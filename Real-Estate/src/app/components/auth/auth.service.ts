@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor() {}
 
-   private _accessToken: string | null = null;
-   private _email: string | null = null;
+  private _accessToken: string | null = null;
+  private _email: string | null = null;
 
   set accessToken(token: string) {
     this._accessToken = token;
@@ -15,16 +15,24 @@ export class AuthService {
   }
 
   get accessToken(): string | null {
-    return this._accessToken || localStorage.getItem('accessToken');
+    if (typeof localStorage !== 'undefined') {
+      return this._accessToken || localStorage.getItem('accessToken');
+    }
+    return null;
   }
 
   set email(email: string) {
-    this._email = email;
-    localStorage.setItem('email', email);
+    if (typeof localStorage !== 'undefined') {
+      this._email = email;
+      localStorage.setItem('email', email);
+    }
   }
 
   get email(): string | null {
-    return this._email || localStorage.getItem('email');
+    if (typeof localStorage !== 'undefined') {
+      return this._email || localStorage.getItem('email');
+    }
+    return null;
   }
 
   clearData(): void {
