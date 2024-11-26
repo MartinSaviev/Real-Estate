@@ -29,7 +29,7 @@ export const routes: Routes = [
       { path: ':estateId', component: EstateDetailsComponent },
     ],
   },
-  {path: 'edit' , component: EditComponent},
+  {path: 'edit/:estateId' , component: EditComponent},
   {path: 'comments/:estateId' , component: CommentsComponent},
   { path: '**', component: Error404Component, pathMatch: 'full' },
   

@@ -1,16 +1,53 @@
 <section class="real-estate-form">
-    <div class="container">
-        <div class="real-estate">
-            <header>Edit</header>
-            <form>
-                <input type="text" placeholder="Image url">
-                <input type="text" placeholder="Price">
-                <input type="text" placeholder="Address">
-                <input type="text" placeholder="Furniture">
-                <input type="text" placeholder="Bedrooms">
-                <textarea class="description" name="description" id="" placeholder="Description"></textarea>
-                <button class="button" value="Add Real Estate">Add</button>
-            </form>
-        </div>
+  <div class="container">
+    <div class="real-estate">
+      <header>Edit</header>
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <input
+          type="text"
+          name="imageUrl"
+          placeholder="Image url"
+          formControlName="imageUrl"
+
+        />
+        <input
+          type="text"
+          name="price"
+          placeholder="Price"
+          formControlName="price"
+
+        />
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          formControlName="address"
+
+        />
+        <input
+          type="text"
+          name="furniture"
+          placeholder="Furniture"
+          formControlName="furniture"
+
+        />
+        <input
+          type="number"
+          name="bedrooms"
+          placeholder="Bedrooms"
+          formControlName="bedrooms"
+
+        />
+        <textarea
+          class="description"
+          name="description"
+          placeholder="Description"
+          formControlName="description"
+       
+        ></textarea>
+
+        <button class="button" value="Add Real Estate">Add</button>
+      </form>
     </div>
+  </div>
 </section>

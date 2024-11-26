@@ -67,7 +67,7 @@ export class EstateDetailsComponent implements OnInit {
   }
 
   onEdit() {
-
-    this.navigation.navigate(['/edit']);
+    const id = this.route.snapshot.params['estateId'];
+    this.navigation.navigate([`/edit/${id}`]);
   }
 }
