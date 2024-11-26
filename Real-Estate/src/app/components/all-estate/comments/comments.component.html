@@ -14,8 +14,14 @@
         <div class="container">
             <div class="real-estate">
                 <header>Comment</header>
-                <form>
-                    <textarea class="description" name="description" id="" placeholder="Comment"></textarea>
+                <form [formGroup]="commentForm" (ngSubmit)="addCommentHandler()">
+                    <textarea 
+                     class="description"
+                     name="comment"
+                     formControlName="comment"
+                     placeholder="Comment">
+                     
+                    </textarea>
                     <button class="button" value="Add Real Estate">Add</button>
                 </form>
             </div>

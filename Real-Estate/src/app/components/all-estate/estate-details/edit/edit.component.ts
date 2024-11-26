@@ -22,8 +22,7 @@ export class EditComponent implements OnInit {
   constructor(
     private EditService: EditService,
     private route: ActivatedRoute,
-    private router: Router,
-    
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -34,19 +33,23 @@ export class EditComponent implements OnInit {
     });
   }
   editForm = new FormGroup({
-    imageUrl: new FormControl(''),
-    price: new FormControl(''),
-    address: new FormControl(''),
-    furniture: new FormControl(''),
-    bedrooms: new FormControl<number | ''>(''),
-    description: new FormControl(''),
+    imageUrl: new FormControl('', [Validators.required,Validators.pattern(/^(http|https):\/\/.+$/)]),
+    price: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    furniture: new FormControl('', [Validators.required]),
+    bedrooms: new FormControl<number | ''>('', [Validators.required]),
+    description: new FormControl('', [Validators.required, Validators.minLength(30)]),
   });
 
   onSubmit() {
+
+    if (this.editForm.invalid) {
+      alert('error')
+      return;
+    }
     const id = this.route.snapshot.params['estateId'];
     this.EditService.postEdit(id, this.editForm.value).subscribe(() => {
       this.router.navigate([`/my-estate/${id}`]);
     });
-
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
+import { Comment } from '../../types/typeHouse';
 
 @Injectable()
 export class CommentsService {
@@ -13,5 +14,9 @@ export class CommentsService {
 
   getOwner(id: string) {
     return this.http.get(`${this.apiUrl}/realEstate/${id}/owner`);
+  }
+
+  addComment(id: string, comment:Comment) {
+    return this.http.post(`${this.apiUrl}/realEstate/${id}/comments`, comment);
   }
 }

@@ -1,30 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './comments.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Comment, Email } from '../../types/typeHouse';
 import { AuthService } from '../../auth/auth.service';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   providers: [CommentsService],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.css',
 })
 export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
-  owner: Email = {
-    email: '',
-    _id: '',
-  };
-
+  owner!: Email;
   authEmail: string | null = '';
+
+  commentForm = new FormGroup({
+    comment: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
+  });
 
   constructor(
     private route: ActivatedRoute,
     private CommentsService: CommentsService,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -51,4 +56,22 @@ export class CommentsComponent implements OnInit {
     return this.AuthService.accessToken || undefined;
   }
 
+  addCommentHandler() {
+    const id = this.route.snapshot.params['estateId'];
+    const body:Comment = {
+      email: this.authEmail || '',
+      comment: this.commentForm.value.comment || '',
+      
+    }
+
+    if(this.commentForm.invalid){
+      alert('Please enter a comment');
+      return;
+    }
+
+    this.CommentsService.addComment(id,body).subscribe(()=> {
+      this.commentForm.reset();
+      this.router.navigate([`/my-estate/${id}`]);
+    })
+  }
 }
