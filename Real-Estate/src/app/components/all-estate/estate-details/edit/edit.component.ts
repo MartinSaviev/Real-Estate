@@ -30,7 +30,7 @@ export class EditComponent implements OnInit {
     const id = this.route.snapshot.params['estateId'];
     this.EditService.getEdit(id).subscribe((edit) => {
       this.house = edit as House;
-      this.editForm.patchValue(this.house); // Initialize form with fetched data });
+      this.editForm.patchValue(this.house);
     });
   }
   editForm = new FormGroup({
