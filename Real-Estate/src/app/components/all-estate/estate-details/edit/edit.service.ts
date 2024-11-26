@@ -10,4 +10,8 @@ apiUrl = environment.apiUrl
   getEdit(id:string){
     return this.http.get(`${this.apiUrl}/realEstate/${id}`)
   }
+
+  postEdit(id:string,body:{}){
+    return this.http.patch(`${this.apiUrl}/realEstate/${id}`,body)
+  }
 }

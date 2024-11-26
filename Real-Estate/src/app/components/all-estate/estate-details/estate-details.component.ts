@@ -5,7 +5,6 @@ import { House } from '../../types/typeHouse';
 import { DeleteService } from '../../delete/delete.service';
 import { AuthService } from '../../auth/auth.service';
 
-
 @Component({
   selector: 'app-estate-details',
   standalone: true,
