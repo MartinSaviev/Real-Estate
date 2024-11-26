@@ -43,7 +43,6 @@ export class EditComponent implements OnInit {
   });
 
   onSubmit() {
-    console.log(this.editForm.value);
     const id = this.route.snapshot.params['estateId'];
     this.EditService.postEdit(id, this.editForm.value).subscribe(() => {
       this.router.navigate([`/my-estate/${id}`]);
