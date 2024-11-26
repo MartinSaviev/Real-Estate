@@ -39,7 +39,6 @@ form {
   gap: 1.5rem;
 }
 
-input,
 textarea,
 button {
   width: 100%;
@@ -50,16 +49,12 @@ button {
   outline: none;
 }
 
-input:focus,
 textarea:focus {
   box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
   border-color: #0287f4;
 }
 
-input[type="text"],
-input[type="number"] {
-  background-color: #f8f8f8;
-}
+
 
 textarea {
   height: 150px;
