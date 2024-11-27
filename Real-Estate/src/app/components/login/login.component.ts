@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
 import { LoginService } from './login.service';
-import { UserLogin } from '../types/typeHouse';
+import { UserLogin } from './typeHouse';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   providers: [LoginService],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
@@ -19,37 +25,47 @@ export class LoginComponent {
   constructor(
     private LoginService: LoginService,
     private AuthService: AuthService,
-    private router: Router,
+    private router: Router
   ) {}
 
-  login(ev: Event, email: HTMLInputElement, password: HTMLInputElement): void {
-    ev.preventDefault();
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+  });
 
-    this.loginUser = {
-      email: email.value,
-      password: password.value,
-    };
+  login() {
+    if(this.loginForm.invalid) {
+      return;
+    }
+
+    this.loginUser = this.loginForm.value as UserLogin;
 
     this.LoginService.login(this.loginUser).subscribe({
       next: (response) => {
-        console.log('Login Successful');
-        const accessToken = response.accessToken;
-        const email = response.email;
-       
+        
+        console.log('Server Response:', response);
+        console.log('Status Code:', response.status);
+
+        const accessToken = response.body?.accessToken;
+        const email = response.body?.email;
+
         if (accessToken) {
           this.AuthService.accessToken = accessToken;
-          this.AuthService.email = email;
+          this.AuthService.email = email || '';
           this.router.navigate(['/']);
         } else {
           console.error('Access Token is missing from the server response');
         }
       },
       error: (error: HttpErrorResponse) => {
+        alert('Грешно потребителско име или парола');
         console.error('Error:', error);
       },
       complete: () => {
-        email.value = '';
-        password.value = '';
+        this.loginForm.reset();
       },
     });
   }

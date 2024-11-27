@@ -34,7 +34,7 @@ export class EditComponent implements OnInit {
   }
   editForm = new FormGroup({
     imageUrl: new FormControl('', [Validators.required,Validators.pattern(/^(http|https):\/\/.+$/)]),
-    price: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required,Validators.pattern('[0-9]+')]),
     address: new FormControl('', [Validators.required]),
     furniture: new FormControl('', [Validators.required]),
     bedrooms: new FormControl<number | ''>('', [Validators.required]),
@@ -44,7 +44,7 @@ export class EditComponent implements OnInit {
   onSubmit() {
 
     if (this.editForm.invalid) {
-      alert('error')
+      alert('error');
       return;
     }
     const id = this.route.snapshot.params['estateId'];

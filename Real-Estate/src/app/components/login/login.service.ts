@@ -9,6 +9,6 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   login(user: UserLogin) {
-    return this.http.post<UserLogin>(this.apiLogin, user);
+    return this.http.post<UserLogin>(this.apiLogin, user,{ observe: 'response' });
   }
 }

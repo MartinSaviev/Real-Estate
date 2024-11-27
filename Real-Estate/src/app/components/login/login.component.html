@@ -1,15 +1,15 @@
 <section class="login-form">
     <div class="container">
         <div class="login">
-            <header>Login</header>
-            <form>
-                <input type="text" placeholder="Enter your email" #email>
-                <input type="password" placeholder="Enter your password" #password>
-                <button (click)="login($event,email,password)" class="button" value="Login">Login</button>
+            <header>Влез</header>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" >
+                <input type="text" placeholder="Въведете своя имейл" name="email" formControlName="email">
+                <input type="password" placeholder="Въведете своята парола" name="email" formControlName="password">
+                <button class="button" value="Login">Влез</button>
             </form>
             <div class="signup-login">
-                <span class="signup-login">Don't have an account?
-                    <label routerLink="/register">Register</label>
+                <span class="signup-login">Ако нямаш акаунт?
+                    <label routerLink="/register">Регистрация</label>
                 </span>
             </div>
         </div>

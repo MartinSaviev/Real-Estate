@@ -33,7 +33,7 @@ export class AddNewRealEstateComponent {
 
   estateFrom = new FormGroup({
     imageUrl: new FormControl('', [Validators.required,Validators.pattern(/^(http|https):\/\/.+$/)]),
-    price: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required,Validators.required,Validators.pattern('[0-9]+')]),
     address: new FormControl('', [Validators.required]),
     furniture: new FormControl('', [Validators.required]),
     bedrooms: new FormControl<number | null>(null, [
