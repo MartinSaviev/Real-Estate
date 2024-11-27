@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
 import { RegisterService } from './register.service';
-import { UserRegister } from '../types/typeHouse';
+import { UserRegister } from './UserRegisterType';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ReactiveFormsModule],
   providers: [RegisterService],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
@@ -22,34 +28,43 @@ export class RegisterComponent {
     private AuthService: AuthService
   ) {}
 
-  register(
-    event: Event,
-    email: HTMLInputElement,
-    password: HTMLInputElement,
-    rePassword: HTMLInputElement
-  ) {
+  registerForm = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.pattern('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/gm'),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+    rePassword: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+  });
+  register(event: Event) {
     event.preventDefault();
 
-    this.registerUser = {
-      email: email.value,
-      password: password.value,
-      rePassword: rePassword.value,
-    };
+    const { email, password, rePassword } = this.registerForm.value;
 
-    if (this.registerUser.password !== this.registerUser.rePassword) {
+    this.registerUser = {
+      email,
+      password,
+    } as UserRegister;
+
+    if (password !== rePassword) {
+      this.registerForm.value.password = '';
+      this.registerForm.value.rePassword = '';
       alert('Passwords do not match');
-      this.registerUser.email = email.value;
-      password.value = '';
-      rePassword.value = '';
       return;
     }
     this.RegisterService.registerUser(this.registerUser).subscribe({
-      next: (response: any) => {
+      next: (response) => {
         console.log('Login Successful');
 
-        const accessToken = response.accessToken;
-        const email = response.email;
-
+        const accessToken = response.body?.accessToken || '';
+        const email = response.body?.email || '';
         this.router.navigate(['/']);
 
         if (accessToken) {
@@ -62,10 +77,9 @@ export class RegisterComponent {
 
       error: (error: HttpErrorResponse) => {
         console.error('Error:', error);
-        // Handle error here
       },
       complete: () => {
-        (email.value = ''), (password.value = ''), (rePassword.value = '');
+        this.registerForm.reset();
       },
     });
   }

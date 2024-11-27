@@ -37,7 +37,7 @@ export class LoginComponent {
   });
 
   login() {
-    if(this.loginForm.invalid) {
+    if (this.loginForm.invalid) {
       return;
     }
 
@@ -45,7 +45,6 @@ export class LoginComponent {
 
     this.LoginService.login(this.loginUser).subscribe({
       next: (response) => {
-        
         console.log('Server Response:', response);
         console.log('Status Code:', response.status);
 

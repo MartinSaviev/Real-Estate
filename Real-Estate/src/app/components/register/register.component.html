@@ -1,17 +1,16 @@
 <section class="register-form">
     <div class="container">
         <div class="register">
-            <header>Register</header>
-            <form>
-                <input type="text" placeholder="Enter your email" #email>
-                <input type="password" placeholder="Create a password" #password>
-                <input type="password" placeholder="Confirm your password" #rePassword>
-                <button (click)="register($event,email,password,rePassword)" class="button"
-                    value="Register">Register</button>
+            <header>Регистрация</header>
+            <form [formGroup]="registerForm" (ngSubmit)="register($event)">
+                <input type="text" placeholder="Въведете своя имейл" name="email" formControlName="email">
+                <input type="password" placeholder="Създайте парола" name="password" formControlName="password">
+                <input type="password" placeholder="Повторете парола" name="rePassword" formControlName="rePassword">
+                <button class="button" value="Register">Регистрация</button>
             </form>
             <div class="signup-register">
-                <span class="signup-register">I have an account?
-                    <label routerLink="/login">Login</label>
+                <span class="signup-register">Ако имате акаунт?
+                    <label routerLink="/login">Влез</label>
                 </span>
             </div>
         </div>
