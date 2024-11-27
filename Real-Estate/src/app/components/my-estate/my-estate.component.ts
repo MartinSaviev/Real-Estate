@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Email, House } from '../types/typeHouse';
+import { Email, House } from './typeHouse';
 import { RouterLink } from '@angular/router';
 import { MyEstateService } from './my-estate.service';
 import { AuthService } from '../auth/auth.service';

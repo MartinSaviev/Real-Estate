@@ -7,7 +7,11 @@ import { AuthService } from '../auth/auth.service';
 @Injectable()
 export class LogoutService {
   apiLogout = environment.apiLogout;
-  constructor(private http:HttpClient,private route:Router,private AuthService:AuthService) { }
+  constructor(
+    private http: HttpClient,
+    private route: Router,
+    private AuthService: AuthService
+  ) {}
 
   logoutFromServer() {
     const accessToken = this.AuthService.accessToken || '';
