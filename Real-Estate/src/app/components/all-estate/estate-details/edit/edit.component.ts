@@ -38,7 +38,7 @@ export class EditComponent implements OnInit {
     address: new FormControl('', [Validators.required]),
     furniture: new FormControl('', [Validators.required]),
     bedrooms: new FormControl<number | ''>('', [Validators.required]),
-    description: new FormControl('', [Validators.required, Validators.minLength(30)]),
+    description: new FormControl('', [Validators.required, Validators.minLength(20)]),
   });
 
   onSubmit() {

@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import { AddNewRealEstateService } from './add-new-real-estate.service';
 import { Email, House } from '../types/typeHouse';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-real-estate',
   standalone: true,
-  imports: [],
-  providers:[AddNewRealEstateService],
+  imports: [ReactiveFormsModule],
+  providers: [AddNewRealEstateService],
   templateUrl: './add-new-real-estate.component.html',
   styleUrls: ['./add-new-real-estate.component.css'],
 })
@@ -16,40 +22,52 @@ export class AddNewRealEstateComponent {
   email: Email | undefined = undefined;
 
   constructor(
-    private addNewRealEstateData: AddNewRealEstateService,
+    private AddNewRealEstateService: AddNewRealEstateService,
     private router: Router
   ) {
-    const sessionEmail = localStorage.getItem('email');
-    this.email = sessionEmail ? { email: sessionEmail } : undefined;
+    if (typeof localStorage !== 'undefined') {
+      const sessionEmail = localStorage.getItem('email');
+      this.email = sessionEmail ? { email: sessionEmail } : undefined;
+    }
   }
 
-  addNewRealEstate(
-    event: Event,
-    imageUrl: HTMLInputElement,
-    price: HTMLInputElement,
-    address: HTMLInputElement,
-    furniture: HTMLInputElement,
-    bedrooms: HTMLInputElement,
-    description: HTMLTextAreaElement
-  ): void {
-    event.preventDefault();
-    this.newRealEstate = {
-      imageUrl: imageUrl.value,
-      price: price.value,
-      address: address.value,
-      furniture: furniture.value,
-      bedrooms: Number(bedrooms.value),
-      description: description.value,
-      owner: this.email,
-    };
+  estateFrom = new FormGroup({
+    imageUrl: new FormControl('', [Validators.required,Validators.pattern(/^(http|https):\/\/.+$/)]),
+    price: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    furniture: new FormControl('', [Validators.required]),
+    bedrooms: new FormControl<number | null>(null, [
+      Validators.required,
+      Validators.min(1),
+    ]),
+    description: new FormControl('', [
+      Validators.required,
+      Validators.minLength(20),
+    ]),
+  });
 
-    this.addNewRealEstateData.postRealEstate(this.newRealEstate).subscribe({
-      next: (house) => {
-        console.log('Successfully added new real estate:', house);
-        this.router.navigate(['/']);
+  addNewRealEstate() {
+    if (this.estateFrom.invalid) {
+      alert('Please enter a validestate from the database before creating!');
+      return;
+    }
+
+    this.newRealEstate = {
+      ...this.estateFrom.value,
+      owner: {
+        email: this.email?.email,
       },
-      error: (err) => {
-        console.error('Error adding real estate:', err);
+    } as House;
+
+    this.AddNewRealEstateService.postRealEstate(this.newRealEstate).subscribe({
+      next: (response) => {
+        console.log('Real estate added successfully', response);
+      },
+      error: (error) => {
+        console.error('Error adding real estate', error);
+      },
+      complete: () => {
+        this.router.navigate(['/']);
       },
     });
   }
