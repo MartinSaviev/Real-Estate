@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { LastThreeEstateService } from './last-three-estate.service';
-import { House } from '../types/typeHouse';
+import { House } from './houseType';
+import { CurrencyPipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-last-three-estate',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   providers:[LastThreeEstateService],
   templateUrl: './last-three-estate.component.html',
   styleUrl: './last-three-estate.component.css'

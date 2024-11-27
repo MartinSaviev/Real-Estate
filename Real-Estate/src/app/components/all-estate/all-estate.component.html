@@ -6,7 +6,7 @@
         <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
 
         <div class="house-item">
-            <div class="price"><span>&#8364; {{house.price}}</span></div>
+            <div class="price"><span>{{house.price | currency:'EUR':'symbol':'1.0-0'}}</span></div>
 
             <div class="address-and-city">
                 <p class="city">{{house.address}}</p>

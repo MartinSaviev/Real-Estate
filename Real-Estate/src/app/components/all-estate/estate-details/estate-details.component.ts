@@ -4,11 +4,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { House } from '../../types/typeHouse';
 import { DeleteService } from '../../delete/delete.service';
 import { AuthService } from '../../auth/auth.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-estate-details',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,CurrencyPipe],
   providers: [DeleteService, EstateDetailsService],
   templateUrl: './estate-details.component.html',
   styleUrl: './estate-details.component.css',

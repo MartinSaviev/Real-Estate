@@ -3,11 +3,12 @@ import { Email, House } from '../types/typeHouse';
 import { RouterLink } from '@angular/router';
 import { MyEstateService } from './my-estate.service';
 import { AuthService } from '../auth/auth.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-my-estate',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,CurrencyPipe],
   providers:[MyEstateService],
   templateUrl: './my-estate.component.html',
   styleUrl: './my-estate.component.css',
