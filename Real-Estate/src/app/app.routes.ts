@@ -9,11 +9,12 @@ import { EstateDetailsComponent } from './components/all-estate/estate-details/e
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
 import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
 import { CommentsComponent } from './components/all-estate/comments/comments.component';
+import { isAuthenticated } from './components/auth/authGuards';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent ,canActivate: [isAuthenticated]},
+  { path: 'login', component: LoginComponent, canActivate: [isAuthenticated] },
   { path: 'add-new-real-estate', component: AddNewRealEstateComponent },
   {
     path: 'all-estate',
@@ -22,15 +23,14 @@ export const routes: Routes = [
       { path: ':estateId', component: EstateDetailsComponent },
     ],
   },
-  { 
+  {
     path: 'my-estate',
     children: [
       { path: '', component: MyEstateComponent },
       { path: ':estateId', component: EstateDetailsComponent },
     ],
   },
-  {path: 'edit/:estateId' , component: EditComponent},
-  {path: 'comments/:estateId' , component: CommentsComponent},
+  { path: 'edit/:estateId', component: EditComponent},
+  { path: 'comments/:estateId', component: CommentsComponent },
   { path: '**', component: Error404Component, pathMatch: 'full' },
-  
 ];

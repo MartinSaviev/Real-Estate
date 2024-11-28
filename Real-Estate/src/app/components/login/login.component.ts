@@ -32,7 +32,7 @@ export class LoginComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(6),
+      Validators.minLength(5),
     ]),
   });
 
@@ -42,15 +42,11 @@ export class LoginComponent {
     }
 
     this.loginUser = this.loginForm.value as UserLogin;
-
     this.LoginService.login(this.loginUser).subscribe({
       next: (response) => {
-        console.log('Server Response:', response);
-        console.log('Status Code:', response.status);
-
+      
         const accessToken = response.body?.accessToken;
         const email = response.body?.email;
-
         if (accessToken) {
           this.AuthService.accessToken = accessToken;
           this.AuthService.email = email || '';
