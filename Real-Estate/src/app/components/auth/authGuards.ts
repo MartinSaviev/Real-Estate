@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 
 export const isAuthenticated: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  
+
   const authService = inject(AuthService);
   const token = authService.accessToken;
 

@@ -31,4 +31,6 @@ export class MyEstateComponent implements OnInit {
       }
     });
   }
+
+  
 }

@@ -75,6 +75,9 @@ export class RegisterComponent {
       },
 
       error: (error: HttpErrorResponse) => {
+        if (error.status === 409) {
+          alert('Email already exists');
+        }
         console.error('Error:', error);
       },
       complete: () => {
