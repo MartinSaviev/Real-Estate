@@ -47,7 +47,7 @@ export class CommentsComponent implements OnInit {
     });
   }
   isOwner() {
-    if (this.owner.email === this.authEmail) {
+    if (this.owner?.email === this?.authEmail) {
       return false;
     }
     return true;

@@ -9,28 +9,28 @@ import { EstateDetailsComponent } from './components/all-estate/estate-details/e
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
 import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
 import { CommentsComponent } from './components/all-estate/comments/comments.component';
-import { isAuthenticated, isOwner } from './components/auth/authGuards';
+import { isAuthenticated, isNotAuthenticated, myEstate } from './components/auth/authGuards';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'register', component: RegisterComponent ,canActivate: [isAuthenticated]},
   { path: 'login', component: LoginComponent, canActivate: [isAuthenticated] },
-  { path: 'add-new-real-estate', component: AddNewRealEstateComponent },
+  { path: 'add-new-real-estate', component: AddNewRealEstateComponent, canActivate:[isNotAuthenticated] },
   {
     path: 'all-estate',
     children: [
       { path: '', component: AllEstateComponent },
-      { path: ':estateId', component: EstateDetailsComponent },
+      { path: ':estateId/details', component: EstateDetailsComponent },
     ],
   },
   {
     path: 'my-estate',
     children: [
-      { path: '', component: MyEstateComponent },
-      { path: ':estateId', component: EstateDetailsComponent },
+      { path: '', component: MyEstateComponent , canActivate:[myEstate] },
+      { path: ':estateId/details', component: EstateDetailsComponent },
     ],
   },
-  { path: 'edit/:estateId', component: EditComponent, canActivate: [isOwner]},
-  { path: 'comments/:estateId', component: CommentsComponent },
+   { path: 'details/:estateId/edit', component: EditComponent},
+  { path: 'details/:estateId/comments', component: CommentsComponent },
   { path: '**', component: Error404Component, pathMatch: 'full' },
 ];

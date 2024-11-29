@@ -2,7 +2,7 @@
     <div class="image-and-buttons">
         <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
         <div class="buttons">
-            <button routerLink="/comments/{{house._id}}" class="comments">Comments</button>
+            <button routerLink="/details/{{house._id}}/comments" class="comments">Comments</button>
             @if(owner()){
             <button (click)="onEdit()" class="edit">Edit</button>
             <button (click)="onDelete()" class="delete">Delete</button>
