@@ -32,6 +32,7 @@ export class RegisterComponent {
     email: new FormControl('', [
       Validators.required,
       Validators.email,
+      Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'),
     ]),
     password: new FormControl('', [
       Validators.required,
@@ -42,6 +43,13 @@ export class RegisterComponent {
       Validators.minLength(6),
     ]),
   });
+
+  passwordsMatch(): boolean {
+    return (
+      this.registerForm.get('password')?.value ===
+      this.registerForm.get('rePassword')?.value
+    );
+  }
   register(event: Event) {
     event.preventDefault();
 
