@@ -9,7 +9,7 @@ import { EstateDetailsComponent } from './components/all-estate/estate-details/e
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
 import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
 import { CommentsComponent } from './components/all-estate/comments/comments.component';
-import { isAuthenticated } from './components/auth/authGuards';
+import { isAuthenticated, isOwner } from './components/auth/authGuards';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -30,7 +30,7 @@ export const routes: Routes = [
       { path: ':estateId', component: EstateDetailsComponent },
     ],
   },
-  { path: 'edit/:estateId', component: EditComponent},
+  { path: 'edit/:estateId', component: EditComponent, canActivate: [isOwner]},
   { path: 'comments/:estateId', component: CommentsComponent },
   { path: '**', component: Error404Component, pathMatch: 'full' },
 ];
