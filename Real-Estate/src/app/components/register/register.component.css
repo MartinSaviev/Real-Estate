@@ -89,12 +89,10 @@ button:focus {
   text-decoration: underline;
 }
 
-.invalid-email,
-.invalid-pass {
+.invalid-email {
   color: red;
 }
-.valid-email,
-.valid-pass {
+.valid-email {
   color: green;
 }
 
