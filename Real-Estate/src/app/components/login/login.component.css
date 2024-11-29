@@ -80,7 +80,6 @@ button:focus {
   font-size: 17px;
   text-align: center;
   margin-top: 2em;
-  
 }
 .signup-login label {
   color: #002966;
@@ -89,3 +88,11 @@ button:focus {
 .signup-login label:hover {
   text-decoration: underline;
 }
+
+.invalid-email,.invalid-pass {
+  color: red;
+}
+.valid-email,.valid-pass {
+  color: green;
+}
+

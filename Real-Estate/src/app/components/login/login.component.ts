@@ -29,21 +29,25 @@ export class LoginComponent {
   ) {}
 
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
+    email: new FormControl('', [
       Validators.required,
+      Validators.email,
+      Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'),
+    ]),
+    password: new FormControl('', [Validators.required,
+      Validators.minLength(6),
     ]),
   });
 
   login() {
     if (this.loginForm.invalid) {
+      alert('Please enter a valid login');
       return;
     }
 
     this.loginUser = this.loginForm.value as UserLogin;
     this.LoginService.login(this.loginUser).subscribe({
       next: (response) => {
-      
         const accessToken = response.body?.accessToken;
         const email = response.body?.email;
         if (accessToken) {

@@ -3,9 +3,9 @@
         <div class="login">
             <header>Влез</header>
             <form [formGroup]="loginForm" (ngSubmit)="login()" >
-                <input type="text" placeholder="Въведете своя имейл" name="email" formControlName="email">
-                <input type="password" placeholder="Въведете своята парола" name="email" formControlName="password">
-                <button class="button" value="Login">Влез</button>
+                <input [className]="loginForm.get('email')?.invalid ? 'invalid-email':'valid-email'" type="text" placeholder="Въведете своя имейл" name="email" formControlName="email">
+                <input [className]="loginForm.get('password')?.invalid ? 'invalid-pass':'valid-pass'" type="password" placeholder="Въведете своята парола" name="email" formControlName="password">
+                <button  class="button" value="Login">Влез</button>
             </form>
             <div class="signup-login">
                 <span class="signup-login">Ако нямаш акаунт?
