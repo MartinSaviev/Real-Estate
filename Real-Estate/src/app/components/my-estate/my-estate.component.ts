@@ -28,9 +28,8 @@ export class MyEstateComponent implements OnInit {
           (house) => house.owner?.email === sessionEmail
         );
         this.houses = result;
+        console.log(result);
       }
     });
   }
-
-  
 }

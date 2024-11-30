@@ -25,7 +25,5 @@ export class NavbarComponent {
     return this.AuthService.accessToken || undefined;
   }
 
-  email() {
-    return this.AuthService.email || 'user';
-  }
+ 
 }

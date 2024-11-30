@@ -3,7 +3,12 @@ import { CommentsService } from './comments.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comment, Email } from '../../types/typeHouse';
 import { AuthService } from '../../auth/auth.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
@@ -16,7 +21,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
   owner!: Email;
-  authEmail: string | null = '';
+  authEmail: string = '';
 
   commentForm = new FormGroup({
     comment: new FormControl('', [
@@ -29,7 +34,7 @@ export class CommentsComponent implements OnInit {
     private route: ActivatedRoute,
     private CommentsService: CommentsService,
     private AuthService: AuthService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -37,13 +42,17 @@ export class CommentsComponent implements OnInit {
 
     this.CommentsService.getCommentsByPostId(commentsId).subscribe(
       (comments) => {
-        this.comments = Object.values(comments) as Comment[];
+        if (comments) {
+          this.comments = Object.values(comments as Comment[]);
+        }
       }
     );
 
     this.CommentsService.getOwner(commentsId).subscribe((owner) => {
-      this.owner = owner as Email;
-      this.authEmail = this.AuthService.email;
+      if (owner) {
+        this.owner = owner as Email;
+        this.authEmail = this.AuthService.email || '';
+      }
     });
   }
   isOwner() {
@@ -58,24 +67,23 @@ export class CommentsComponent implements OnInit {
 
   addCommentHandler() {
     const id = this.route.snapshot.params['estateId'];
-    const body:Comment = {
+    const body: Comment = {
       email: this.authEmail || '',
       comment: this.commentForm.value.comment || '',
-      
-    }
+    };
 
-    if(this.commentForm.invalid){
+    if (this.commentForm.invalid) {
       alert('Please enter a comment');
       return;
     }
 
-     this.CommentsService.addComment(id,body).subscribe( {
-      next:() => {
+    this.CommentsService.addComment(id, body).subscribe({
+      next: () => {
         this.commentForm.reset();
-        this.router.navigate([`/details/${id}/comments`]).then(()=> {
+        this.router.navigate([`/details/${id}/comments`]).then(() => {
           window.location.reload();
         });
       },
-    })
+    });
   }
 }

@@ -65,3 +65,10 @@
     margin-right: 0.5em;
   }
   
+  .not-have-estate {
+    font-size: 2em;
+    margin-top: 2em;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 2em;
+  }

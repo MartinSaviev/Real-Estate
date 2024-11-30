@@ -1,4 +1,7 @@
 <section>
+    @if ( comments.length <= 0){
+        <h1 class="not-have-comments">Нямате довавени Коментари!</h1>
+   }
     @for (comment of comments; track $index) {
     <article class="real-estate-form">
         <div class="comment">

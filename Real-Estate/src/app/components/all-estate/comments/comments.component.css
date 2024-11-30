@@ -103,3 +103,11 @@ button:focus {
   font-size: 1.2rem;
   
 }
+
+.not-have-comments {
+  font-size: 2em;
+  margin-top: 2em;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 2em;
+}

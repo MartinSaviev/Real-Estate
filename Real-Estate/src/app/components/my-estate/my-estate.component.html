@@ -1,30 +1,33 @@
 <div class="home-page-houses-style">
-    @for (house of houses; track $index) {
+    @if ( houses.length <= 0){
+             <h1 class="not-have-estate">Нямате довавени имоти!</h1>
+        }
 
-    <div class="property-item">
+        @for (house of houses; track $index) {
 
-        <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
+        <div class="property-item">
 
-        <div class="house-item">
-            <div class="price"><span>{{house.price | currency:'EUR':'symbol':'1.0-0'}}</span></div>
+            <img class="img-style" src="{{house.imageUrl}}" alt="Image" />
 
-            <div class="address-and-city">
-                <p class="city">{{house.address}}</p>
+            <div class="house-item">
+                <div class="price"><span>{{house.price | currency:'EUR':'symbol':'1.0-0'}}</span></div>
+
+                <div class="address-and-city">
+                    <p class="city">{{house.address}}</p>
+                </div>
+
+                <div class="specs">
+                    <span class="specs-bed">
+                        <p class="caption"><b>Обзавеждане</b> {{house.furniture}}</p>
+                    </span>
+                    <span class="specs-bath">
+                        <p class="caption"><b>Спални</b> {{house.bedrooms}}</p>
+                    </span>
+                </div>
+
+                <a [routerLink]="[house._id + '/details']" class="btn details">See details</a>
+
             </div>
-
-            <div class="specs">
-                <span class="specs-bed">
-                    <p class="caption"><b>Обзавеждане</b> {{house.furniture}}</p>
-                </span>
-                <span class="specs-bath">
-                    <p class="caption"><b>Спални</b> {{house.bedrooms}}</p>
-                </span>
-            </div>
-
-            <a [routerLink]="[house._id + '/details']" class="btn details">See details</a>
-
         </div>
-    </div>
-
-    }
+        }
 </div>
