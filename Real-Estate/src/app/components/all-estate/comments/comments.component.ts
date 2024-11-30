@@ -69,9 +69,13 @@ export class CommentsComponent implements OnInit {
       return;
     }
 
-    this.CommentsService.addComment(id,body).subscribe(()=> {
-      this.commentForm.reset();
-      this.router.navigate([`/my-estate/${id}`]);
+     this.CommentsService.addComment(id,body).subscribe( {
+      next:() => {
+        this.commentForm.reset();
+        this.router.navigate([`/details/${id}/comments`]).then(()=> {
+          window.location.reload();
+        });
+      },
     })
   }
 }

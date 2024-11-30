@@ -49,7 +49,7 @@ export class EditComponent implements OnInit {
     }
     const id = this.route.snapshot.params['estateId'];
     this.EditService.postEdit(id, this.editForm.value).subscribe(() => {
-      this.router.navigate([`/my-estate/${id}`]);
+      this.router.navigate([`/my-estate/${id}/details`]);
     });
   }
 }
