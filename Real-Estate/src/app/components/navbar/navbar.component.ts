@@ -24,4 +24,8 @@ export class NavbarComponent {
    isLoggedIn() {
     return this.AuthService.accessToken || undefined;
   }
+
+  email() {
+    return this.AuthService.email || 'user';
+  }
 }

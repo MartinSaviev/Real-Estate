@@ -9,7 +9,7 @@ import { EstateDetailsComponent } from './components/all-estate/estate-details/e
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
 import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
 import { CommentsComponent } from './components/all-estate/comments/comments.component';
-import { isAuthenticated, isNotAuthenticated, isOwner, myEstate } from './components/auth/authGuards';
+import { isAuthenticated, isNotAuthenticated, isOwner } from './components/auth/authGuards';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },

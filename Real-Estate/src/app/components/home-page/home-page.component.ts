@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LastThreeEstateComponent } from '../last-three-estate/last-three-estate.component';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,4 +11,10 @@ import { LastThreeEstateComponent } from '../last-three-estate/last-three-estate
 })
 export class HomePageComponent {
 
+  constructor(private AuthService:AuthService){}
+
+  email() {
+    return this.AuthService.email || '';
+  
+  }
 }
