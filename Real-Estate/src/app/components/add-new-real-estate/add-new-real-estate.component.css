@@ -36,7 +36,7 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  
 }
 
 input,
@@ -48,6 +48,7 @@ button {
   border: 1px solid #002966;
   border-radius: 6px;
   outline: none;
+  margin-bottom: 1.5em;
 }
 
 input:focus,
@@ -82,4 +83,9 @@ button:hover {
 
 button:focus {
   box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
+}
+
+.error {
+  color: red;
+  margin-top: 0;
 }

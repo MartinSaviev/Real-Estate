@@ -32,23 +32,39 @@ export class AddNewRealEstateComponent {
   }
 
   estateFrom = new FormGroup({
-    imageUrl: new FormControl('', [Validators.required,Validators.pattern(/^(http|https):\/\/.+$/)]),
-    price: new FormControl('', [Validators.required,Validators.required,Validators.pattern('[0-9]+')]),
-    address: new FormControl('', [Validators.required]),
-    furniture: new FormControl('', [Validators.required]),
+    imageUrl: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^(http|https):\/\/.+$/),
+    ]),
+    price: new FormControl('', [
+      Validators.required,
+      Validators.required,
+      Validators.pattern('[1-9]+'),
+    ]),
+    address: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(30),
+    ]),
+    furniture: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.pattern('^[А-Яа-я]+$'),
+    ]),
     bedrooms: new FormControl<number | null>(null, [
       Validators.required,
       Validators.min(1),
+      Validators.max(200),
     ]),
     description: new FormControl('', [
       Validators.required,
       Validators.minLength(20),
     ]),
   });
+  showError: boolean = false;
 
   addNewRealEstate() {
     if (this.estateFrom.invalid) {
-      alert('Please enter a validestate from the database before creating!');
+      alert('Всички стойности трябва да са въведени валидно!');
       return;
     }
 

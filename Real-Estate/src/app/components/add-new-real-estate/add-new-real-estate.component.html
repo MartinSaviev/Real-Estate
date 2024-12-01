@@ -4,42 +4,91 @@
       <header>Добави нов имот</header>
 
       <form [formGroup]="estateFrom" (ngSubmit)="addNewRealEstate()">
-        <input
-          type="text"
-          placeholder="Изображение"
-          name="ImageUrl"
-          formControlName="imageUrl"
-        />
-        <input
-          type="text"
-          placeholder="Цена"
-          name="price"
-          formControlName="price"
-        />
-        <input
-          type="text"
-          placeholder="Адрес"
-          name="address"
-          formControlName="address"
-        />
-        <input
-          type="text"
-          placeholder="Обзаведенане"
-          name="furniture"
-          formControlName="furniture"
-        />
-        <input
-          type="number"
-          placeholder="Спални"
-          name="bedrooms"
-          formControlName="bedrooms"
-        />
-        <textarea
-          class="description"
-          name="description"
-          placeholder="Описание"
-          formControlName="description"
-        ></textarea>
+
+        <input type="text" placeholder="Изображение" name="ImageUrl" formControlName="imageUrl" />
+
+        @if(estateFrom.get('imageUrl')?.touched){
+        <div class="error">
+          @if(estateFrom.get('imageUrl')?.errors?.['required']){
+          <div class="error">Няма въведена стойност на Изображение!</div>
+          }
+          @if(estateFrom.get('imageUrl')?.errors?.['pattern']){
+          <div class="error">Невалидена стойност!Трябва да започва с http или https!</div>
+          }
+        </div>
+        }
+
+        <input type="number" placeholder="Цена" name="price" formControlName="price" />
+
+        @if(estateFrom.get('price')?.touched){
+        <div class="error">
+          @if(estateFrom.get('price')?.errors?.['required']){
+          <div class="error">Няма въведена стойност на цена!</div>
+          }
+          @if(estateFrom.get('price')?.errors?.['pattern']){
+          <div class="error">Невалидено чисо! Въведете число по голямо от 0!</div>
+          }
+        </div>
+        }
+
+        <input type="text" placeholder="Адрес" name="address" formControlName="address" />
+        @if(estateFrom.get('address')?.touched){
+
+        <div class="error">
+          @if(estateFrom.get('address')?.errors?.['required']){
+          <div class="error">Няма въведена стойност на адрес!</div>
+          }
+          @if(estateFrom.get('address')?.errors?.['maxlength']){
+          <div class="error">Невалиден адрес!Максимален брой символи 20!</div>
+          }
+        </div>
+        }
+        <input type="text" placeholder="Обзаведенане" name="furniture" formControlName="furniture" />
+        @if(estateFrom.get('furniture')?.touched){
+
+        <div class="error">
+          @if(estateFrom.get('furniture')?.errors?.['required']){
+          <div class="error">Няма въведена стойност на обзавеждане!</div>
+          }
+          @if(estateFrom.get('furniture')?.errors?.['maxlength']){
+          <div class="error">Невалиденa стойност не трябва да надвишава 20 симбовала!</div>
+          }
+          @if(estateFrom.get('furniture')?.errors?.['pattern']){
+          <div class="error">Невалидна стойност! Въведете текстa на Кирилица!</div>
+          }
+        </div>
+        }
+
+        <input type="number" placeholder="Спални" name="bedrooms" formControlName="bedrooms" />
+        @if(estateFrom.get('bedrooms')?.touched){
+
+        <div class="error">
+          @if(estateFrom.get('bedrooms')?.errors?.['required']){
+          <div class="error">Няма въведена стойност спални!</div>
+          }
+          @if(estateFrom.get('bedrooms')?.errors?.['max']){
+          <div class="error">Невалидено число въведете цяло число то 1 до 200!</div>
+          }
+          @if(estateFrom.get('bedrooms')?.errors?.['min']){
+          <div class="error">Невалидено число въведете число по-голямо от 0!</div>
+          }
+        </div>
+
+        }
+        <textarea class="description" name="description" placeholder="Описание"
+          formControlName="description"></textarea>
+
+        @if(estateFrom.get('description')?.touched){
+        <div class="error">
+          @if(estateFrom.get('description')?.errors?.['required']){
+          <div class="error">Няма въведена стойност на описание!</div>
+          }
+          @if(estateFrom.get('description')?.errors?.['minlength']){
+          <div class="error">Напишете минимум 30 симбовал!</div>
+          }
+        </div>
+
+        }
         <button class="button" value="Add Real Estate">Добави</button>
       </form>
     </div>
