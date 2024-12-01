@@ -26,7 +26,7 @@ export class CommentsComponent implements OnInit {
   commentForm = new FormGroup({
     comment: new FormControl('', [
       Validators.required,
-      Validators.minLength(2),
+      Validators.minLength(15),
     ]),
   });
 

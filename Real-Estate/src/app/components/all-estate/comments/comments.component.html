@@ -1,35 +1,40 @@
 <section>
-    @if ( comments.length <= 0){
-        <h1 class="not-have-comments">Нямате довавени Коментари!</h1>
-   }
-    @for (comment of comments; track $index) {
-    <article class="real-estate-form">
-        <div class="comment">
-            <h4 class="center">{{comment.email}}</h4>
-            <p>{{comment.comment}}</p>
-        </div>
-    </article>
-
-    }
-    @if(isLoggedIn()){
-    @if(isOwner()){
-    <article class="real-estate-form">
-        <div class="container">
-            <div class="real-estate">
-                <header>Comment</header>
-                <form [formGroup]="commentForm" (ngSubmit)="addCommentHandler()">
-                    <textarea 
-                     class="description"
-                     name="comment"
-                     formControlName="comment"
-                     placeholder="Comment">
-                     
-                    </textarea>
-                    <button class="button" value="Add Real Estate">Add</button>
-                </form>
+    @if ( comments.length <= 0){ <h1 class="not-have-comments">Нямате довавени Коментари!</h1>
+        }
+        @for (comment of comments; track $index) {
+        <article class="real-estate-form">
+            <div class="comment">
+                <h4 class="center">{{comment.email}}</h4>
+                <p>{{comment.comment}}</p>
             </div>
-        </div>
-    </article>
-    }
-    }
+        </article>
+
+        }
+        @if(isLoggedIn()){
+        @if(isOwner()){
+        <article class="real-estate-form">
+            <div class="container">
+                <div class="real-estate">
+                    <header>Коментар</header>
+                    <form [formGroup]="commentForm" (ngSubmit)="addCommentHandler()">
+                        <textarea class="description" name="comment" formControlName="comment" placeholder="Коментар">
+
+                    </textarea>
+                        @if(commentForm.get('comment')?.touched){
+                        <div class="error">
+                            @if(commentForm.get('comment')?.errors?.['required']){
+                            <div class="error">Няма въведеа стойност!</div>
+                            }
+                            @if(commentForm.get('comment')?.errors?.['minlength']){
+                            <div class="error">Невалиденa стойност! Не трябва да има по малко от 15 симбовала!</div>
+                            }
+                        </div>
+                        }
+                        <button class="button" value="Add Real Estate">Добави</button>
+                    </form>
+                </div>
+            </div>
+        </article>
+        }
+        }
 </section>
