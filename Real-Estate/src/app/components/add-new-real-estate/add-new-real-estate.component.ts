@@ -39,7 +39,7 @@ export class AddNewRealEstateComponent {
     price: new FormControl('', [
       Validators.required,
       Validators.required,
-      Validators.pattern('[1-9]+'),
+      Validators.pattern('^[1-9][0-9]*$'),
     ]),
     address: new FormControl('', [
       Validators.required,
@@ -58,6 +58,7 @@ export class AddNewRealEstateComponent {
     description: new FormControl('', [
       Validators.required,
       Validators.minLength(20),
+      Validators.pattern('^[А-Яа-я0-9]+$'),
     ]),
   });
   showError: boolean = false;

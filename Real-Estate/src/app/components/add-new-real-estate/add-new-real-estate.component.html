@@ -86,6 +86,9 @@
           @if(estateFrom.get('description')?.errors?.['minlength']){
           <div class="error">Напишете минимум 30 симбовал!</div>
           }
+           @if(estateFrom.get('description')?.errors?.['pattern']){
+          <div class="error">Невалидна стойност! Въведете текстa на Кирилица!</div>
+          }
         </div>
 
         }
