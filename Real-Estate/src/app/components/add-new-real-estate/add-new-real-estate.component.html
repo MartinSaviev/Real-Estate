@@ -53,9 +53,6 @@
           @if(estateFrom.get('furniture')?.errors?.['maxlength']){
           <div class="error">Невалиденa стойност! Не трябва да надвишава 20 симбовала!</div>
           }
-          @if(estateFrom.get('furniture')?.errors?.['pattern']){
-          <div class="error">Невалидна стойност! Въведете текстa на Кирилица!</div>
-          }
         </div>
         }
 
@@ -85,9 +82,6 @@
           }
           @if(estateFrom.get('description')?.errors?.['minlength']){
           <div class="error">Напишете минимум 30 симбовал!</div>
-          }
-           @if(estateFrom.get('description')?.errors?.['pattern']){
-          <div class="error">Невалидна стойност! Въведете текстa на Кирилица!</div>
           }
         </div>
 

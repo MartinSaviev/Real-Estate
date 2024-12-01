@@ -47,8 +47,7 @@ export class AddNewRealEstateComponent {
     ]),
     furniture: new FormControl('', [
       Validators.required,
-      Validators.maxLength(20),
-      Validators.pattern('^[А-Яа-я]+$'),
+      Validators.maxLength(20)
     ]),
     bedrooms: new FormControl<number | null>(null, [
       Validators.required,
@@ -57,11 +56,10 @@ export class AddNewRealEstateComponent {
     ]),
     description: new FormControl('', [
       Validators.required,
-      Validators.minLength(20),
-      Validators.pattern('^[А-Яа-я0-9]+$'),
+      Validators.minLength(20)
     ]),
   });
-  showError: boolean = false;
+  
 
   addNewRealEstate() {
     if (this.estateFrom.invalid) {
