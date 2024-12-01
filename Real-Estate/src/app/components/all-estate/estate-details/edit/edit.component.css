@@ -40,8 +40,7 @@ form {
 }
 
 input,
-textarea,
-button {
+textarea{
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 17px;
@@ -66,20 +65,26 @@ textarea {
   background-color: #f8f8f8;
   resize: none;
 }
-button {
-  color: #fff;
-  background: #002966;
+.button {
+  padding: 0.75rem 1rem;
   font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  cursor: pointer;
+  border: 1px solid #002966;
+  background: #002966;
+  color: #fff;
+  border-radius: 6px;
+  outline: none;
+  align-self: center;
   transition: 0.4s ease;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+  width: 40%;
 }
 
-button:hover {
+.button:hover {
   background: #0287f4;
 }
 
-button:focus {
+.button:focus {
   box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
 }

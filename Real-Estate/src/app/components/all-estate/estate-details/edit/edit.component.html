@@ -1,52 +1,52 @@
 <section class="real-estate-form">
   <div class="container">
     <div class="real-estate">
-      <header>Edit</header>
+      <header>Промени</header>
       <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
         <input
           type="text"
           name="imageUrl"
-          placeholder="Image url"
+          placeholder="Изображение"
           formControlName="imageUrl"
 
         />
         <input
           type="text"
           name="price"
-          placeholder="Price"
+          placeholder="Цена"
           formControlName="price"
 
         />
         <input
           type="text"
           name="address"
-          placeholder="Address"
+          placeholder="Адрес"
           formControlName="address"
 
         />
         <input
           type="text"
           name="furniture"
-          placeholder="Furniture"
+          placeholder="Обзаведенане"
           formControlName="furniture"
 
         />
         <input
           type="number"
           name="bedrooms"
-          placeholder="Bedrooms"
+          placeholder="Спални"
           formControlName="bedrooms"
 
         />
         <textarea
           class="description"
           name="description"
-          placeholder="Description"
+          placeholder="Описание"
           formControlName="description"
        
         ></textarea>
 
-        <button class="button" value="Add Real Estate">Add</button>
+        <button class="button" value="Add Real Estate">Запази</button>
       </form>
     </div>
   </div>
