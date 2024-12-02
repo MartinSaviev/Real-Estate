@@ -9,16 +9,9 @@
             <div class="price"><span>{{house.price | currency:'EUR':'symbol':'1.0-0'}}</span></div>
 
             <div class="address-and-city">
-                <p class="city">{{house.address}}</p>
-            </div>
-
-            <div class="specs">
-                <p class="specs-bed">
-                    <span class="caption"> <b>Обзавеждане</b> {{house.furniture}}</span>
-                </p>
-                <p class="specs-bath">
-                    <span class="caption"><b>Спални</b> {{house.bedrooms}}</span>
-                </p>
+                <p class="text"><b>Населено място: </b>{{house.address}}</p>
+                <p class="text"> <b>Обзавеждане: </b> {{house.furniture}}</p>
+                <p class="text"><b>Спални</b>: {{house.bedrooms}}</p>
             </div>
         </div>
     </div>
