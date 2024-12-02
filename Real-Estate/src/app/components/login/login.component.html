@@ -8,8 +8,6 @@
                     <div class="error">
                         @if(loginForm.get('email')?.errors?.['required']){
                             <div class="error">Няма въведена стойност на имейл!</div>
-                        }@if(loginForm.get('email')?.errors?.['email']){
-                             <div class="error">Невалиден имейл!</div>
                         }
                         @if(loginForm.get('email')?.errors?.['pattern']){
                             <div class="error">Невалиден имейл!</div>

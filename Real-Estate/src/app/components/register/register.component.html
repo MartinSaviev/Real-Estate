@@ -9,8 +9,6 @@
                 <div class="error">
                     @if(registerForm.get('email')?.errors?.['required']){
                     <div class="error">Няма въведена стойност на имейл!</div>
-                    }@if(registerForm.get('email')?.errors?.['email']){
-                    <div class="error">Невалиден имейл!</div>
                     }@if(registerForm.get('email')?.errors?.['pattern']){
                     <div class="error">Невалиден имейл!</div>
                     }
