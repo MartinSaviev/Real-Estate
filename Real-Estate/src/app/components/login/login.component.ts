@@ -41,7 +41,7 @@ export class LoginComponent {
 
   login() {
     if (this.loginForm.invalid) {
-      alert('Please enter a valid login');
+      alert('Грешно потебителско име или парола!');
       return;
     }
 

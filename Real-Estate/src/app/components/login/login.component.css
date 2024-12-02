@@ -40,7 +40,6 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
 input{
@@ -50,6 +49,7 @@ input{
   border: 1px solid #002966;
   border-radius: 6px;
   outline: none;
+  margin-bottom: 1.5em;
 }
 
 input:focus {
@@ -99,5 +99,10 @@ input:focus {
 }
 .valid-email,.valid-pass {
   color: green;
+}
+
+.error {
+  color: red;
+  margin-right: 3em;
 }
 
