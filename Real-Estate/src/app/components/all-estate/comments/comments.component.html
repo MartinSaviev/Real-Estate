@@ -2,17 +2,25 @@
     @if ( comments.length <= 0){ <h1 class="not-have-comments">Нямате довавени Коментари!</h1>
         }
         @for (comment of comments; track $index) {
-        <article class="real-estate-form">
+        <article class="real-estate-form comments-and-buttons">
             <div class="comment">
-                <h4 class="center">{{comment.email}}</h4>
-                <p>{{comment.comment}}</p>
+                <p class="email">{{comment.email}}</p>
+                <p class="text-comment">{{comment.comment}}</p>
             </div>
+            @if(isLoggedIn()){
+            @if(ownerComment()===comment.email){
+            <div class="buttons">
+                <button class="button edit">edit</button>
+                <button class="button delete">delete</button>
+            </div>
+            }
+            }
         </article>
 
         }
         @if(isLoggedIn()){
         @if(isOwner()){
-        <article class="real-estate-form">
+        <article class="real-estate-form add-form">
             <div class="container">
                 <div class="real-estate">
                     <header>Коментар</header>

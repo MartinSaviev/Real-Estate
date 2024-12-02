@@ -36,7 +36,6 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
 input,
@@ -47,6 +46,7 @@ textarea{
   border: 1px solid #002966;
   border-radius: 6px;
   outline: none;
+  margin-bottom: 1.5rem;
 }
 
 input:focus,
@@ -87,4 +87,8 @@ textarea {
 
 .button:focus {
   box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
+}
+
+.error{
+  color: red;
 }

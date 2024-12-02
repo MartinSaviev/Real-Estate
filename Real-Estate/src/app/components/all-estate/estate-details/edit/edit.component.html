@@ -8,44 +8,92 @@
           name="imageUrl"
           placeholder="Изображение"
           formControlName="imageUrl"
-
         />
+        @if(editForm.get('imageUrl')?.touched){
+          <div class="error">
+            @if(editForm.get('imageUrl')?.errors?.['required']){
+               <div class="error">Няма въведена стойност на Изображение!</div>
+            }@if(editForm.get('imageUrl')?.errors?.['pattern']){
+               <div class="error">Невалидена стойност!Трябва да започва с http или https!</div>
+            }
+          </div>
+        }
         <input
-          type="text"
+          type="number"
           name="price"
           placeholder="Цена"
           formControlName="price"
 
         />
+        @if(editForm.get('price')?.touched){
+          <div class="error">
+            @if(editForm.get('price')?.errors?.['required']){
+              <div class="error">Няма въведена стойност на цена!</div>
+            }@if(editForm.get('price')?.errors?.['pattern']){
+              <div class="error">Невалидено чисо! Въведете число по голямо от 0!</div>
+            }
+          </div>
+        }
         <input
           type="text"
           name="address"
           placeholder="Адрес"
           formControlName="address"
-
         />
+        @if(editForm.get('address')?.touched){
+            <div class="error">
+              @if(editForm.get('address')?.errors?.['required']){
+                <div class="error">Няма въведена стойност на адрес!</div>
+              }@if(editForm.get('address')?.errors?.['maxlength']){
+                <div class="error">Невалиден адрес!Максимален брой символи 20!</div>
+              }
+            </div>
+        }
         <input
           type="text"
           name="furniture"
           placeholder="Обзаведенане"
           formControlName="furniture"
-
         />
+        @if(editForm.get('furniture')?.touched){
+          @if(editForm.get('furniture')?.errors?.['required']){
+            <div class="error">Няма въведена стойност на обзавеждане!</div>
+          }@if(editForm.get('furniture')?.errors?.['maxlength']){
+            <div class="error">Невалиденa стойност! Не трябва да надвишава 20 симбовала!</div>
+          }
+        }
         <input
           type="number"
           name="bedrooms"
           placeholder="Спални"
           formControlName="bedrooms"
-
         />
+        @if(editForm.get('dedrooms')?.touched){
+          <div class="error">
+            @if(editForm.get('bedrooms')?.errors?.['required']){
+              <div class="error">Няма въведена стойност спални!</div>
+            }@if(editForm.get('bedrooms')?.errors?.['max']){
+              <div class="error">Невалидено число въведете цяло число то 1 до 200!</div>
+            }@if(editForm.get('bedrooms')?.errors?.['min']){
+              <div class="error">Невалидено число въведете число по-голямо от 0!</div>
+            }
+          </div>
+        }
         <textarea
           class="description"
           name="description"
           placeholder="Описание"
           formControlName="description"
-       
         ></textarea>
-
+       @if(editForm.get('description')?.touched){
+        <div class="error">
+          @if(editForm.get('description')?.errors?.['required']){
+            <div class="error">Няма въведена стойност на описание!</div>
+          }@if(editForm.get('description')?.errors?.['minlength']){
+            <div class="error">Напишете минимум 30 симбовал!</div>
+          }
+        </div>
+       }
         <button class="button" value="Add Real Estate">Запази</button>
       </form>
     </div>

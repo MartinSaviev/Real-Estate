@@ -11,7 +11,7 @@
 
 .title {
   color: rgb(255, 98, 0);
-  font-size: 3em;
+  font-size: 4em;
   opacity: 90%;
   font-family: "Montserrat", sans-serif;
   text-align: center;
@@ -30,7 +30,7 @@
 
 .navbar-list a {
   color: rgb(17, 0, 255);
-  font-size: 2em;
+  font-size: 2.5em;
   text-decoration: none;
   background-color: aliceblue;
   border-radius: 1em;

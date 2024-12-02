@@ -61,6 +61,10 @@ export class CommentsComponent implements OnInit {
     }
     return true;
   }
+
+  ownerComment(){
+    return this.authEmail;
+  }
   isLoggedIn() {
     return this.AuthService.accessToken || undefined;
   }
@@ -73,7 +77,7 @@ export class CommentsComponent implements OnInit {
     };
 
     if (this.commentForm.invalid) {
-      alert('Please enter a comment');
+      alert('Няма въведен коректно коментар!');
       return;
     }
 

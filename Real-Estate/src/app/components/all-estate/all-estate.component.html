@@ -10,19 +10,12 @@
             <div class="price"><span>{{house.price | currency:'EUR':'symbol':'1.0-0'}} </span></div>
 
             <div class="address-and-city">
-                <p class="city">{{house.address}}</p>
+                <p class="text"><b>Населено място: </b>{{house.address}}</p>
+                <p class="text"> <b>Обзавеждане: </b> {{house.furniture}}</p>
+                <p class="text"><b>Спални</b>: {{house.bedrooms}}</p>
             </div>
 
-            <div class="specs">
-                <span class="specs-bed">
-                    <p class="caption"><b>Обзавеждане</b> {{house.furniture}}</p>
-                </span>
-                <span class="specs-bath">
-                    <p class="caption"><b>Спални</b> {{house.bedrooms}}</p>
-                </span>
-            </div>
-
-            <a [routerLink]="[house._id + '/details']" class="btn details">See details</a>
+            <button class="button" [routerLink]="[house._id + '/details']">Детайли</button>
 
         </div>
     </div>

@@ -1,30 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .home-page-houses-style {
   font-family: "Arial", sans-serif;
   color: #333;
   display: flex;
-  justify-content: center;
-  display: flex;
-  margin-top: 4em;
+  justify-content: space-between;
+  align-items: center;
+  margin:2em;
+  border: 2px solid black;
+  border-radius: 2em;
+  width: auto;
+}
+
+.img-style {
+  border-radius: 1em;
+  width: auto;
+  height: 80vh;
+  padding: 1em;
+  border-radius: 2em;
+  flex-grow: 1;
 }
 
 .property-item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   margin: 1em;
   font-size: 1.2em;
-}
-
-.img-style {
-  border-radius: 1em;
-  width: 800px;
-  height: 700px;
+  flex: 1 1 0;
 }
 
 .house-item {
   display: flex;
   flex-direction: column;
+  gap: 1em;
 }
 
 .price {
@@ -33,37 +47,10 @@
   margin-top: 0.1em;
 }
 
-.address {
-  margin-bottom: 1em;
-  font-size: 1.2em;
-  font-style: italic;
-  text-decoration: none;
-  color: #6c757d;
-}
-.specs {
-  margin-bottom: 1em;
-}
-
-.btn.details {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.btn.details:hover {
-  background-color: #0062cc;
-}
-
-.icon-bed {
-  color: #007bff;
-  font-size: 2em;
-  margin-bottom: 0.5em;
-  margin-right: 0.5em;
+.address-and-city {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 }
 
 .description {
@@ -83,12 +70,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 0 1 1;
 }
 
 .buttons {
   display: flex;
   gap: 2em;
-  margin: 1em 0;
+  margin-bottom: 1em;
 }
 
 .edit ,.delete ,.comments {

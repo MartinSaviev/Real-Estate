@@ -1,74 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .home-page-houses-style {
-    font-family: "Arial", sans-serif;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  font-family: "Arial", sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.property-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 1em;
+  font-size: 1.2em;
+  border: 2px solid black;
+  border-radius: 1.1em;
+}
+
+.img-style {
+  border-radius: 1em;
+  width: 500px;
+  height: 400px;
+  padding: 0.5em;
+  border-radius: 1.1em;
+}
+
+.house-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 0.2em;
+  border-radius: 2em;
+}
+
+.address {
+  font-size: 1.2em;
+  font-style: italic;
+  text-decoration: none;
+  color: #6c757d;
+}
+
+.address-and-city {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  font-size: 1.5rem;
   
-  .property-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 1em;
-    font-size: 1.2em;
-  }
+}
+
   
-  .img-style {
-      border-radius: 1em;
-      width: 500px;
-      height: 400px;
-  }
-  
-  .house-item {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .price {
-    font-weight: bold;
-    font-size: 2em;
-    margin-top: 0.1em;
-  }
-  
-  .address {
-    margin-bottom: 1em;
-    font-size: 1.2em;
-    font-style: italic;
-    text-decoration: none;
-    color: #6c757d;
-  }
-  .specs {
-    margin-bottom: 1em;
-  }
-  
-  .btn.details {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .btn.details:hover {
-    background-color: #0062cc;
-  }
-  
-  .icon-bed {
-    color: #007bff;
-    font-size: 2em;
-    margin-bottom: 0.5em;
-    margin-right: 0.5em;
-  }
-  
-  .not-have-estate {
-    font-size: 2em;
-    margin-top: 2em;
-    color: #6c757d;
-    text-align: center;
-    margin-bottom: 2em;
-  }
+.buttons {
+  display: flex;
+  gap: 2em;
+  margin: 1em 0;
+}
+
+.button{
+  color: #fff;
+  background: #002966;
+  border: 1px solid #002966;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  align-self: center;
+  width: 50%;
+  transition: 0.4s ease;
+  margin: 0.5rem;
+}
+.button:hover {
+  background: #0287f4;
+}
+
+.button:focus {
+  box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
+}

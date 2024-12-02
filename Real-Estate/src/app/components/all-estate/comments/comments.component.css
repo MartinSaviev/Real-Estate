@@ -8,12 +8,11 @@
   box-sizing: border-box;
 }
 
-.real-estate-form{
+.real-estate-form {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 2rem 0;
 }
 
 .container {
@@ -44,7 +43,22 @@ form {
   border: 1px solid #002966;
   border-radius: 6px;
   outline: none;
+  color: #fff;
+  background: #002966;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  align-self: center;
+  width: 40%;
+}
 
+.button:hover {
+  background: #0287f4;
+}
+
+.button:focus {
+  box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
 }
 
 .description {
@@ -65,51 +79,6 @@ form {
   border-color: #0287f4;
 }
 
-.button {
-  color: #fff;
-  background: #002966;
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: 0.4s ease;
-  align-self: center;
-  width: 40%;
-}
-
-.button:hover {
-  background: #0287f4;
-}
-
-.button:focus {
-  box-shadow: 0 0 5px rgba(0, 41, 102, 0.4);
-}
-
-.comment {
-  max-width: 650px;
-  width: 100%;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.center {
-  font-size: 1.1rem;
-  border: 2px solid #ccc;
-  padding: 0.2rem;
-  border-radius: 2em;
-  align-self: center;
-  margin-bottom: 1em;
-}
-.comment p {
-  font-size: 1.2rem;
-  
-}
-
 .not-have-comments {
   font-size: 2em;
   margin-top: 2em;
@@ -120,4 +89,82 @@ form {
 
 .error {
   color: red;
+}
+
+.comments-and-buttons {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+  border-radius: 0.5em;
+  max-width: 650px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  gap: 0.5em;
+  margin: 1em;
+  justify-content: end;
+  margin-right: 2em;
+}
+
+.edit {
+  width: 10%;
+  font-size: 12px;
+  padding: 0.5em;
+}
+
+.delete {
+  color: #fff;
+  background: #b00e02;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  align-self: center;
+  width: 10%;
+  font-size: 12px;
+  padding: 0.5em;
+}
+
+.delete:hover {
+  background: #f80303;
+}
+
+.delete:focus {
+  box-shadow: 0 0 5px rgba(243, 2, 2, 0.4);
+}
+
+.add-form {
+  margin: 2em;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.email {
+  text-align: center;
+  margin: 0.5em;
+  border: 1px solid #bbb;
+  width: 25%;
+  border-radius: 0.5em;
+  color: #0287f4;
+  font-weight: bold;
+}
+
+.text-comment {
+  align-self: self-start;
+  max-width: 100%; 
+  word-wrap: break-word; 
+  white-space: pre-wrap; 
+  overflow: hidden; 
+  padding: 0 1em;
+  font-size: 1.4rem;
 }
