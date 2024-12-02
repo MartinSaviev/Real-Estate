@@ -10,8 +10,8 @@
             @if(isLoggedIn()){
             @if(ownerComment()===comment.email){
             <div class="buttons">
-                <button class="button edit">edit</button>
-                <button class="button delete">delete</button>
+                <button routerLink="{{comment._id}}" class="button edit">edit</button>
+                <button (click)="onDelete(comment)" class="button delete">delete</button>
             </div>
             }
             }
