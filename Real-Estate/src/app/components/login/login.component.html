@@ -20,7 +20,7 @@
                         @if (loginForm.get('password')?.errors?.['required']) {
                             <div class="error">Няма въведена стойност на парола!</div>
                         }@if(loginForm.get('password')?.errors?.['minlength']) {
-                          <div class="error">Паролата трябва да бъде минимум 6 символа!</div>
+                          <div class="error">Паролата трябва да е минимум 6 символа!</div>
                         }
                     </div>
                 }

@@ -10,6 +10,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import e from 'express';
 
 @Component({
   selector: 'app-register',
@@ -49,6 +50,7 @@ export class RegisterComponent {
       this.registerForm.get('rePassword')?.value
     );
   }
+  
   register(event: Event) {
     event.preventDefault();
 
@@ -59,14 +61,15 @@ export class RegisterComponent {
       password,
     } as UserRegister;
 
-    if (password !== rePassword) {
-      this.registerForm.value.password = '';
-      this.registerForm.value.rePassword = '';
-      alert('Passwords do not match');
+    if (this.registerUser.password.length < 6) {
       return;
     }
+
     this.RegisterService.registerUser(this.registerUser).subscribe({
       next: (response) => {
+        
+        console.log(response.body?.password);
+        console.log(response.body?.password.length)
         console.log('Login Successful');
 
         const accessToken = response.body?.accessToken || '';
@@ -86,9 +89,16 @@ export class RegisterComponent {
           alert('Съществуващ емайл адрес!');
           this.registerForm.reset();
         }
+        if (error.status !== 200) {
+          console.log(error.status);
+          alert('Грешно потребителско име или парола!');
+          return;
+        }
+
         console.error('Error:', error);
       },
       complete: () => {
+        console.log('Registration completed');
         this.registerForm.reset();
       },
     });

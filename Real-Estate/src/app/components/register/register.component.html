@@ -31,6 +31,9 @@
                 <div class="error">
                     @if(registerForm.get('rePassword')?.errors?.['required']){
                     <div class="error">Няма въведена стойност на парола!</div>
+                    @if(registerForm.get('password')?.errors?.['minlength']){
+                    <div class="error">Паролата трябва да съдържа поне 6 символа!</div>
+                    }
                     }@if(registerForm.get('password')?.value!== (registerForm.get('rePassword')?.value)){
                         <div class="error">Паролите не съвпадат!</div>
                     }
