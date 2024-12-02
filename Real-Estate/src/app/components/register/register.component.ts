@@ -31,7 +31,6 @@ export class RegisterComponent {
   registerForm = new FormGroup({
     email: new FormControl('', [
       Validators.required,
-      Validators.email,
       Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'),
     ]),
     password: new FormControl('', [
@@ -83,6 +82,10 @@ export class RegisterComponent {
       },
 
       error: (error: HttpErrorResponse) => {
+        if (error.status === 409) {
+          alert('Съществуващ емайл адрес!');
+          this.registerForm.reset();
+        }
         console.error('Error:', error);
       },
       complete: () => {
