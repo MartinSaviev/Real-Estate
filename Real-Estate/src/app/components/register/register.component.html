@@ -3,9 +3,41 @@
         <div class="register">
             <header>Регистрация</header>
             <form [formGroup]="registerForm" (ngSubmit)="register($event)">
-                <input [className]="registerForm.get('email')?.invalid ? 'invalid-email': 'valid-email'" type="text" placeholder="Въведете своя имейл" name="email" formControlName="email">
-                <input [class]="passwordsMatch() ? 'match-pass' : 'not-match-pass'" type="password" placeholder="Създайте парола" name="password" formControlName="password">
-                <input [class]="passwordsMatch() ? 'match-pass' : 'not-match-pass'" type="password" placeholder="Повторете парола" name="rePassword" formControlName="rePassword">
+                <input [className]="registerForm.get('email')?.invalid ? 'invalid-email': 'valid-email'" type="text"
+                    placeholder="Въведете своя имейл" name="email" formControlName="email">
+                @if(registerForm.get('email')?.touched){
+                <div class="error">
+                    @if(registerForm.get('email')?.errors?.['required']){
+                    <div class="error">Няма въведена стойност на имейл!</div>
+                    }@if(registerForm.get('email')?.errors?.['email']){
+                    <div class="error">Невалиден имейл!</div>
+                    }@if(registerForm.get('email')?.errors?.['pattern']){
+                    <div class="error">Невалиден имейл!</div>
+                    }
+                </div>
+                }
+                <input [class]="passwordsMatch() ? 'match-pass' : 'not-match-pass'" type="password"
+                    placeholder="Създайте парола" name="password" formControlName="password">
+                @if(registerForm.get('password')?.touched){
+                <div class="error">
+                    @if(registerForm.get('password')?.errors?.['required']){
+                    <div class="error">Няма въведена стойност на парола!</div>
+                    }@if(registerForm.get('password')?.errors?.['minlength']){
+                    <div class="error">Паролата трябва да съдържа поне 6 символа!</div>
+                    }
+                </div>
+                }
+                <input [class]="passwordsMatch() ? 'match-pass' : 'not-match-pass'" type="password"
+                    placeholder="Повторете парола" name="rePassword" formControlName="rePassword">
+                @if(registerForm.get('rePassword')?.touched){
+                <div class="error">
+                    @if(registerForm.get('rePassword')?.errors?.['required']){
+                    <div class="error">Няма въведена стойност на парола!</div>
+                    }@if(registerForm.get('password')?.value!== (registerForm.get('rePassword')?.value)){
+                        <div class="error">Паролите не съвпадат!</div>
+                    }
+                </div>
+                }
                 <button class="button" value="Register">Регистрация</button>
             </form>
             <div class="signup-register">
