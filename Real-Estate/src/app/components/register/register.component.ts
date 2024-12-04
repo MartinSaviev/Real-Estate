@@ -10,7 +10,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import e from 'express';
 
 @Component({
   selector: 'app-register',
@@ -53,6 +52,10 @@ export class RegisterComponent {
   
   register(event: Event) {
     event.preventDefault();
+    if (this.registerForm.invalid) {
+      alert('Грешно потебителско име или парола!');
+      return;
+    }
 
     const { email, password, rePassword } = this.registerForm.value;
 

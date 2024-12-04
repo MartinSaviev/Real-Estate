@@ -9,13 +9,26 @@ import { EstateDetailsComponent } from './components/all-estate/estate-details/e
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
 import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
 import { CommentsComponent } from './components/all-estate/comments/comments.component';
-import { isAuthenticated, isNotAuthenticated, isOwner } from './components/auth/authGuards';
+import {
+  isAuthenticated,
+  isNotAuthenticated,
+  isOwner,
+} from './components/auth/authGuards';
+import { EditCommentComponent } from './components/all-estate/comments/edit-comment/edit-comment.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'register', component: RegisterComponent ,canActivate: [isAuthenticated]},
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [isAuthenticated],
+  },
   { path: 'login', component: LoginComponent, canActivate: [isAuthenticated] },
-  { path: 'add-new-real-estate', component: AddNewRealEstateComponent, canActivate:[isNotAuthenticated] },
+  {
+    path: 'add-new-real-estate',
+    component: AddNewRealEstateComponent,
+    canActivate: [isNotAuthenticated],
+  },
   {
     path: 'all-estate',
     children: [
@@ -26,11 +39,20 @@ export const routes: Routes = [
   {
     path: 'my-estate',
     children: [
-      { path: '', component: MyEstateComponent , canActivate:[isNotAuthenticated] },
+      {
+        path: '',
+        component: MyEstateComponent,
+        canActivate: [isNotAuthenticated],
+      },
       { path: ':estateId/details', component: EstateDetailsComponent },
     ],
   },
-   { path: 'details/:estateId/edit', component: EditComponent,canActivate:[isOwner]},
+  {
+    path: 'details/:estateId/edit',
+    component: EditComponent,
+    canActivate: [isOwner],
+  },
   { path: 'details/:estateId/comments', component: CommentsComponent },
+  { path: 'details/:estateId/comments/:commentId', component: EditCommentComponent },
   { path: '**', component: Error404Component, pathMatch: 'full' },
 ];
