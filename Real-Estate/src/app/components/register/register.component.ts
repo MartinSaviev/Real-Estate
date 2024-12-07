@@ -92,7 +92,7 @@ export class RegisterComponent {
           alert('Съществуващ емайл адрес!');
           this.registerForm.reset();
         }
-        if (error.status !== 200) {
+        else if (error.status !== 200) {
           console.log(error.status);
           alert('Грешно потребителско име или парола!');
           return;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './comments.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Comment, Email } from './typeHouse';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import {
   FormControl,
   FormGroup,

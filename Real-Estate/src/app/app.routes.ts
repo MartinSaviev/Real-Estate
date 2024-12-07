@@ -8,13 +8,14 @@ import { Error404Component } from './components/error404/error404.component';
 import { EstateDetailsComponent } from './components/all-estate/estate-details/estate-details.component';
 import { MyEstateComponent } from './components/my-estate/my-estate.component';
 import { EditComponent } from './components/all-estate/estate-details/edit/edit.component';
-import { CommentsComponent } from './components/all-estate/comments/comments.component';
+import { CommentsComponent } from './components/comments/comments.component';
 import {
   isAuthenticated,
   isNotAuthenticated,
   isOwner,
+  myComment,
 } from './components/auth/authGuards';
-import { EditCommentComponent } from './components/all-estate/comments/edit-comment/edit-comment.component';
+import { EditCommentComponent } from './components/comments/edit-comment/edit-comment.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -53,6 +54,6 @@ export const routes: Routes = [
     canActivate: [isOwner],
   },
   { path: 'details/:estateId/comments', component: CommentsComponent },
-  { path: 'details/:estateId/comments/:commentId', component: EditCommentComponent },
+  { path: 'details/:estateId/comments/:commentId', component: EditCommentComponent ,canActivate: [isNotAuthenticated,myComment] },
   { path: '**', component: Error404Component, pathMatch: 'full' },
 ];

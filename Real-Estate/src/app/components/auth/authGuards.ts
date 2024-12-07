@@ -54,16 +54,16 @@ export const isOwner: CanActivateFn = (route, state) => {
 };
 
 
-export const myEstate: CanActivateFn = (route, state) => {
+export const myComment: CanActivateFn = (route, state) => {
   const http = inject(HttpClient);
   const router = inject(Router);
-  const apiUrl = environment.apiUrl;
   const authService = inject(AuthService);
-  const id = route.params['estateId'];
+  const estateId = route.params['estateId'];
+  const commentId = route.params['commentId'];
   const email = authService.email;
 
   return new Observable<boolean>((observer) => {
-    http.get<{ email: string }>(`${apiUrl}/realEstate/${id}/owner`).subscribe({
+    http.get<{ email: string }>(`/details/${estateId}/comments/${commentId}`).subscribe({
       next: (response) => {
         const ownerEmail = response?.email;
 

@@ -8,7 +8,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditService } from './edit.service';
 import { Comment } from './typeComment';
-import { environment } from '../../../../../environments/environment.development';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-edit-comment',
