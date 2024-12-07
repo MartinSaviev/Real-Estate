@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './comments.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Comment, Email } from './typeHouse';
 import { AuthService } from '../auth/auth.service';
 import {
@@ -14,7 +14,7 @@ import { DeleteCommentService } from './deleteComment.service';
 @Component({
   selector: 'app-comments',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule],
   providers: [CommentsService, DeleteCommentService],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.css',
