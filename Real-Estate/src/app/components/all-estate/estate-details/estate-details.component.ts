@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EstateDetailsService } from './estate-details.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { House } from '../../types/typeHouse';
+import { House } from './typeDetails';
 import { DeleteService } from '../../delete/delete.service';
 import { AuthService } from '../../auth/auth.service';
 import { CurrencyPipe } from '@angular/common';
@@ -18,16 +18,7 @@ export class EstateDetailsComponent implements OnInit {
   email: string = '';
   authEmail: string | null = '';
 
-  house: House = {
-    imageUrl: '',
-    price: '',
-    address: '',
-    furniture: '',
-    bedrooms: 0,
-    description: '',
-    _id: undefined,
-    owner: undefined,
-  };
+  house: House = {} as House;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,14 +32,11 @@ export class EstateDetailsComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.params['estateId'];
     this.EstateDetailsService.getEstateDetails(id).subscribe((data) => {
+      
       this.house = data as House;
+      this.email = this.house.owner?.email || '';
+      this.authEmail = this.AuthService.email || '';
 
-      const id = this.route.snapshot.params['estateId'];
-      this.EstateDetailsService.getEstateDetails(id).subscribe((data) => {
-        this.house = data as House;
-        this.email = this.house.owner?.email || '';
-        this.authEmail = this.AuthService.email || '';
-      });
     });
   }
 

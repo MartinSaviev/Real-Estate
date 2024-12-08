@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllEstateService } from './all-estate.service';
-import { House } from '../types/typeHouse';
+import { House } from './typeAllEstate';
 import { RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 

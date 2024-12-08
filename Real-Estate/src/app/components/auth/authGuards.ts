@@ -61,18 +61,24 @@ export const myComment: CanActivateFn = (route, state) => {
   const estateId = route.params['estateId'];
   const commentId = route.params['commentId'];
   const email = authService.email;
+  const apiUrl = environment.apiUrl;
 
   return new Observable<boolean>((observer) => {
-    http.get<{ email: string }>(`/details/${estateId}/comments/${commentId}`).subscribe({
+    http.get<{ email: string }>(`${apiUrl}/realEstate/${estateId}/comments/${commentId}`).subscribe({
       next: (response) => {
+        
         const ownerEmail = response?.email;
-
+       
         if (ownerEmail === email) {
+          observer.next(true);
+        } else {
           observer.next(false);
           router.navigate(['/**']);
-        } else {
-          observer.next(true);
         }
+      },
+      error: () => {
+        observer.next(false);
+        router.navigate(['/**']);
       },
     });
   });

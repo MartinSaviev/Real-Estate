@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { EditService } from './edit.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { House } from '../../../types/typeHouse';
+import { House } from './typeEdit';
 
 @Component({
   selector: 'app-edit',

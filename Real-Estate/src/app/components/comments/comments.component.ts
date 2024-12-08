@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './comments.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Comment, Email } from './typeHouse';
+import { Comment, Email } from './typeComment';
 import { AuthService } from '../auth/auth.service';
 import {
   FormControl,

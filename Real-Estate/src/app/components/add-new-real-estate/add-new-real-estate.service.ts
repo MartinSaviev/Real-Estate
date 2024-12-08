@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { House } from '../types/typeHouse';
+import { House } from '../types/types';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
