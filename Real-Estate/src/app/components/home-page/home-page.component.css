@@ -47,7 +47,7 @@
   height: 80px;
   border-radius: 50%;
   opacity: 50%;
-  border: 1px solid #f20505;
+  border: 2px solid #ccc;
 }
 .image {
   list-style-type: none;
