@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommentsService } from './comments.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comment, Email } from './typeComment';
@@ -19,7 +19,7 @@ import { DeleteCommentService } from './deleteComment.service';
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.css',
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent implements OnInit,AfterViewInit {
   comments: Comment[] = [];
   owner!: Email;
   authEmail: string = '';
@@ -36,7 +36,7 @@ export class CommentsComponent implements OnInit {
     private CommentsService: CommentsService,
     private AuthService: AuthService,
     private router: Router,
-    private DeleteCommentService: DeleteCommentService
+    private DeleteCommentService: DeleteCommentService,
   ) {}
   comment!: Comment[];
   ngOnInit(): void {
@@ -85,12 +85,28 @@ export class CommentsComponent implements OnInit {
 
     this.CommentsService.addComment(id, body).subscribe({
       next: () => {
+        this.loadComments();
         this.commentForm.reset();
-        this.router.navigate([`/details/${id}/comments`]).then(() => {
-          window.location.reload();
-        });
+      },
+      error: (error) => {
+        console.error(error);
       },
     });
+  }
+
+  loadComments() {
+    const commentsId = this.route.snapshot.params['estateId'];
+    this.CommentsService.getCommentsByPostId(commentsId).subscribe(
+      (comments) => {
+        if (comments) {
+          this.comments = Object.values(comments as Comment[]);
+        }
+      }
+    );
+  }
+
+  ngAfterViewInit() {
+    this.loadComments();
   }
 
   onDelete(comment: Comment) {
@@ -98,22 +114,18 @@ export class CommentsComponent implements OnInit {
     const commentId = comment._id || '';
 
     this.DeleteCommentService.deleteComment(estateId, commentId).subscribe({
-      next: (response) => {
-        console.log('Real estate added successfully', response);
+      next: () => {
+        this.loadComments();
       },
       error: (error) => {
-        console.error('Error adding real estate', error);
-      },
-      complete: () => {
-        this.router.navigate([`/details/${estateId}/comments`]);
-        window.location.reload();
+        console.error(error);
       },
     });
   }
 
-  onEditComment(comment: Comment){
+  onEditComment(comment: Comment) {
     const estateId = this.route.snapshot.params['estateId'];
-    const commentId = comment._id || ''; 
+    const commentId = comment._id || '';
     this.router.navigate([`/details/${estateId}/comments/${commentId}`]);
   }
 }
