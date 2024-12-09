@@ -2,7 +2,7 @@
     <div class="container">
         <div class="real-estate">
             <header>Коментар</header>
-            <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit($event)">
                 <textarea class="description" name="comment" formControlName="comment" placeholder="Коментар">
 
             </textarea>

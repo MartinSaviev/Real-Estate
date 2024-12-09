@@ -43,7 +43,8 @@ export class EditCommentComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(event:Event) {
+    event.preventDefault();
     if (this.commentForm.invalid) {
       alert('error');
       return;
