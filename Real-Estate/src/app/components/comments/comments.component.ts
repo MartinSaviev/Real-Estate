@@ -113,7 +113,7 @@ export class CommentsComponent implements OnInit {
 
   onEditComment(comment: Comment){
     const estateId = this.route.snapshot.params['estateId'];
-    const commentId = comment._id || '';
+    const commentId = comment._id || ''; 
     this.router.navigate([`/details/${estateId}/comments/${commentId}`]);
   }
 }
