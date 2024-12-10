@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AddNewRealEstateService } from './add-new-real-estate.service';
-import { Email, House } from '../types/types';
+import { Email, House } from './typeHouse';
 import {
   FormControl,
   FormGroup,
