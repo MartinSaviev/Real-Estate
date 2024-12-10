@@ -38,7 +38,7 @@
   opacity: 50%;
 }
 
-.navbar-list a:hover {
+.navbar-list-item a{
   color: red;
 }
 
