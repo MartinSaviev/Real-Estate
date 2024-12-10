@@ -29,16 +29,18 @@
 }
 
 .navbar-list a {
-  color: rgb(17, 0, 255);
+  color: blue;
   font-size: 2.5em;
   text-decoration: none;
   background-color: aliceblue;
-  border-radius: 1em;
+  border-radius: 0.5em;
   padding: 0.2em;
-  opacity: 50%;
+  opacity: 70%;
 }
 
 .navbar-list-item a{
-  color: red;
+  color: blue;
+  background-color: rgb(200, 227, 250);
+  opacity: 80%;
 }
 
