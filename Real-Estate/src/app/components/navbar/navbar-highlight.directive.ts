@@ -8,9 +8,7 @@ export class NavbarHighlightDirective implements OnInit {
   constructor(private elRef: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    console.log('Directive initialization!');
-    console.log(this.elRef.nativeElement);
-
+  
     this.renderer.listen(
       this.elRef.nativeElement,
       'click',
